@@ -1,5 +1,11 @@
 @extends('frontend.layouts.main')
-
+@section('frontcss')
+<style>
+    .no-background .nav  li a{
+            color:white!important;
+        }
+</style>
+@stop
 @section('main-content')
         <!-- Start Banner
     ============================================= -->

@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6 item">
                         <div class="f-item">
-                            <img src="assets/img/logo.png" alt="Logo">
+                            <img src="{{asset('assets/img/logo.png')}}" alt="Logo">
                             <p>
                                 One Stop Solution for Your Business
                             </p>

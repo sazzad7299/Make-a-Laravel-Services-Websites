@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,5 +43,21 @@ Route::get('/project', function () {
 Route::get('/contact', function () {
     return view('frontend.contact');
 });
+
+// Route::get('/admin/service', function () {
+//     return view('admin.services.list');
+// })->middleware('auth');
+
+
+Auth::routes();
+
+// Route::get('/admin', [HomeController::class, 'index'])->name('home');
+Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
+    Route::get('/', [HomeController::class, 'index'])->name('admin.home');
+    Route::view('service', 'admin.services.list');
+    Route::resource('blog','App\Http\Controllers\BlogController');
+});
+
+
 
 

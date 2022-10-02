@@ -47,7 +47,7 @@
     <div class="se-pre-con"></div>
     <!-- Preloader Ends -->
 
-    <!-- Header 
+    <!-- Header
     ============================================= -->
     <header id="home">
 
@@ -75,7 +75,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="index.html">
-                        <img src="assets/img/logo.png" class="logo logo-scrolled" alt="Logo">
+                        <img src="{{asset('assets/img/logo.png')}}" class="logo logo-scrolled" alt="Logo">
                     </a>
                 </div>
                 <!-- End Header Navigation -->
@@ -131,7 +131,7 @@
     </header>
     <!-- End Header -->
 
-    <!-- Start Breadcrumb 
+    <!-- Start Breadcrumb
     ============================================= -->
     <div class="breadcrumb-area shadow dark bg-fixed text-center padding-xl text-light" style="background-image: url(assets/img/2440x1578.png);">
         <div class="container">
@@ -149,7 +149,7 @@
     </div>
     <!-- End Breadcrumb -->
 
-    <!-- Start 404 
+    <!-- Start 404
     ============================================= -->
     <div class="error-page-area bg-gray text-center default-padding">
         <div class="container">
@@ -158,7 +158,7 @@
                     <h1>404</h1>
                     <h2>Sorry Page Was Not Found!</h2>
                     <p>
-                        Household shameless incommode at no objection behaviour. Especially do at he possession insensible sympathize boisterous it. Songs he on an widen me event truth. Certain law age brother sending amongst why covered. 
+                        Household shameless incommode at no objection behaviour. Especially do at he possession insensible sympathize boisterous it. Songs he on an widen me event truth. Certain law age brother sending amongst why covered.
                     </p>
                     <a class="btn btn-theme effect btn-md" href="#">Back To Home</a>
                 </div>
@@ -167,7 +167,7 @@
     </div>
     <!-- End 404 -->
 
-    <!-- Start Footer 
+    <!-- Start Footer
     ============================================= -->
     <footer class="footer-padding bg-light">
         <div class="container">
@@ -175,7 +175,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6 item">
                         <div class="f-item">
-                            <img src="assets/img/logo.png" alt="Logo">
+                            <img src="{{asset('assets/img/logo.png')}}" alt="Logo">
                             <p>
                                 Excellence decisively nay man yet impression for contrasted remarkably. There spoke happy for you are out. Fertile how old address did showing because sitting replied six. Had arose guest visit going off child she new.
                             </p>
@@ -236,7 +236,7 @@
                                 <ul>
                                     <li>
                                         <div class="icon">
-                                            <i class="fas fa-home"></i> 
+                                            <i class="fas fa-home"></i>
                                         </div>
                                         <div class="info">
                                             <h5>Website:</h5>
@@ -245,7 +245,7 @@
                                     </li>
                                     <li>
                                         <div class="icon">
-                                            <i class="fas fa-envelope"></i> 
+                                            <i class="fas fa-envelope"></i>
                                         </div>
                                         <div class="info">
                                             <h5>Email:</h5>
@@ -254,7 +254,7 @@
                                     </li>
                                     <li>
                                         <div class="icon">
-                                            <i class="fas fa-phone"></i> 
+                                            <i class="fas fa-phone"></i>
                                         </div>
                                         <div class="info">
                                             <h5>Phone:</h5>

@@ -21,7 +21,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="/">
-                    <img src="assets/img/logo.png" class="logo logo-scrolled" alt="Logo">
+                    <img src="{{asset('assets/img/logo.png')}}" class="logo logo-scrolled" alt="Logo">
                 </a>
             </div>
             <!-- End Header Navigation -->
