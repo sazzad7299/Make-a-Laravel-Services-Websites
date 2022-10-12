@@ -14469,3 +14469,11 @@ Did you mean this?
 #54 E:\\wamp64\\www\\laravelhellobizer\\hellobizer\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('E:\\\\wamp64\\\\www\\\\l...')
 #55 {main}
 "} 
+[2022-10-12 10:54:50] local.ERROR: Trait "Cviebrock\EloquentSluggable\Sluggable" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Cviebrock\\EloquentSluggable\\Sluggable\" not found at E:\\wamp64\\www\\laravelhellobizer\\hellobizer\\app\\Models\\Category.php:10)
+[stacktrace]
+#0 {main}
+"} 
+[2022-10-12 10:55:10] local.ERROR: Trait "Cviebrock\EloquentSluggable\Sluggable" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Cviebrock\\EloquentSluggable\\Sluggable\" not found at E:\\wamp64\\www\\laravelhellobizer\\hellobizer\\app\\Models\\Category.php:10)
+[stacktrace]
+#0 {main}
+"} 
