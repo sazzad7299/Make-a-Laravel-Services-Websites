@@ -10,11 +10,26 @@
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="/backend/vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 
-	<!-- Custom CSS -->
-	<link href="/backend/dist/css/style.css" rel="stylesheet" type="text/css">
-    @yield('css')
+
+
+    @stack('admincss')
+    {{-- sweet alert --}}
+    {{-- <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script> --}}
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.20/sweetalert2.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.20/sweetalert2.all.min.js"></script>
+        <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
+        <link href="{{asset('backend/vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
+
+
+    <!-- Custom CSS -->
+    <link href="{{asset('backend/dist/css/style.css')}}" rel="stylesheet" type="text/css">
+
+
+
 </head>
 
 <body>
@@ -56,36 +71,49 @@
 
 	</div>
 	<!-- /#wrapper -->
-	<!-- JavaScript -->
 
-	<!-- jQuery -->
-     <!-- jQuery -->
-     <script src="/backend/vendors/bower_components/jquery/dist/jquery.min.js"></script>
 
-     <!-- Bootstrap Core JavaScript -->
-     <script src="/backend/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- jQuery -->
+		<script src="{{asset('backend/vendors/bower_components/jquery/dist/jquery.min.js')}}"></script>
 
-     <!-- Data table JavaScript -->
-     <script src="/backend/vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-     <script src="/backend/dist/js/dataTables-data.js"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="{{asset('backend/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
-     <!-- Slimscroll JavaScript -->
-     <script src="/backend/dist/js/jquery.slimscroll.js"></script>
 
-     <!-- Owl JavaScript -->
-     <script src="/backend/vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+        @stack('adminjs')
 
-     <!-- Switchery JavaScript -->
-     <script src="/backend/vendors/bower_components/switchery/dist/switchery.min.js"></script>
+		<!-- Init JavaScript -->
+        <script src="{{asset('backend/dist/js/form-advance-data.js')}}"></script>
+        {{-- Sweet alert --}}
+	<script src="{{asset('backend/dist/js/init.js')}}"></script>
 
-     <!-- Fancy Dropdown JS -->
-     <script src="/backend/dist/js/dropdown-bootstrap-extended.js"></script>
-
-     <!-- Init JavaScript -->
-     <script src="/backend/dist/js/init.js"></script>
-
-	@yield('js')
-
+    @if(Session::has('success'))
+    <script>
+        window.addEventListener('load',function(){
+            Swal.fire({
+            position: 'top-end',
+            toast:true,
+            icon: 'success',
+            title: "{!! Session('success') !!}",
+            showConfirmButton: false,
+            timer: 2000
+            })
+        });
+    </script>
+    @endif
+    @if(Session::has('error'))
+    <script>
+        window.addEventListener('load',function(){
+            Swal.fire({
+            position: 'top-end',
+            toast:true,
+            icon: 'error',
+            title: "{!! Session('error') !!}",
+            showConfirmButton: false,
+            timer: 2000
+            })
+        });
+    </script>
+    @endif
 </body>
-
 </html>

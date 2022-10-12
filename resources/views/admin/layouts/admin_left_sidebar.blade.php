@@ -9,6 +9,9 @@
             <a @if(\Request::segment(2)=='admin') class="active" @endif href="{{route('admin.home')}}"><div class="pull-left"><i class="zmdi zmdi-home mr-20"></i><span class="right-nav-text">Dashboard</span></div><div class="clearfix"></div></a>
         </li>
         <li>
+            <a @if(\Request::segment(2)=='category') class="active" @endif href="{{route('admin.category.index')}}"><div class="pull-left"><i class="zmdi zmdi-home mr-20"></i><span class="right-nav-text">Category</span></div><div class="clearfix"></div></a>
+        </li>
+        <li>
             <a @if(\Request::segment(2)=='service') class="active" @endif href="javascript:void(0);" data-toggle="collapse" data-target="#pages_dr"><div class="pull-left"><i class="zmdi zmdi-run mr-20"></i><span class="right-nav-text">Services</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
             <ul id="pages_dr" class="collapse collapse-level-1 two-col-list">
                 <li>
@@ -63,7 +66,7 @@
                     <a class="active-page" href="{{url('admin/blog')}}">List</a>
                 </li>
                 <li>
-                    <a class="active-page" href="{{url('admin/blog/create')}}">Add Blog</a>
+                    <a class="active-page" href="{{url('admin/blog/create')}}">Add</a>
                 </li>
             </ul>
         </li>
