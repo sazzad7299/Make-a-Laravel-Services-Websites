@@ -4,10 +4,6 @@
 <link rel="stylesheet" href="{{asset('backend/vendors/bower_components/summernote/dist/summernote.css')}}" />
 <!-- bootstrap-tagsinput CSS -->
 <link href="{{asset('backend/vendors/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')}}" rel="stylesheet" type="text/css"/>
-<!-- switchery CSS -->
-<link href="{{asset('backend/vendors/bower_components/switchery/dist/switchery.min.css')}}" rel="stylesheet" type="text/css"/>
-<!-- Bootstrap Switches CSS -->
-<link href="{{asset('backend/vendors/bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css"/>
 @endpush
 @section('content')
     <!-- Row -->
@@ -82,8 +78,7 @@
 @push('adminjs')
 <!-- Bootstrap Tagsinput JavaScript -->
 <script src="{{ asset('backend/vendors/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
-<script src="{{asset('backend/vendors/bower_components/switchery/dist/switchery.min.js')}}"></script>
-<script src="{{asset('backend/vendors/bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js')}}"></script>
+
 <script src="{{asset('backend/vendors/bower_components/summernote/dist/summernote.min.js')}}"></script>
 
 <!-- Summernote Wysuhtml5 Init JavaScript -->

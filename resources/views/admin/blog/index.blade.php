@@ -13,7 +13,7 @@
                 <h6 class="panel-title txt-dark">Bordered Table</h6>
             </div>
             <div class="pull-right">
-                <a href="{{url('admin/blog/create')}}" class="btn btn-success">Add New</a>
+                <a href="{{route('admin.blog.create')}}" class="btn btn-success">Add New</a>
             </div>
         </div>
         <div class="panel-wrapper collapse in">
@@ -32,9 +32,9 @@
                         <tbody>
                             @foreach ($blogs as $blog)
                             <tr>
+                                <td><img src="{{asset('thumbnail/'.$blog->image)}}" alt=""></td>
                                 <td>{{$blog->title}}</td>
-                                <td>{!! $blog->content !!}</td>
-                                <td>July 11, 2015</td>
+                                <td>@if ($blog->status==1) <span class="label label-primary">Active</span>@else<span class="label label-danger">Inactive</span> @endif</td>
                                 <td class="text-nowrap"><a href="#" class="mr-25" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a> <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a> </td>
                               </tr>
                             @endforeach
@@ -45,6 +45,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 <!-- /Bordered Table -->

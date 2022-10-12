@@ -3,6 +3,7 @@ use App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TagController;
 
@@ -68,6 +69,7 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::resources([
         'blog'=>BlogController::class,
         'tag'=>TagController::class,
+        'category'=>CategoryController::class,
     ]);
 });
 

@@ -78,7 +78,7 @@ class BlogController extends Controller
         $image->move($destinationPath, $input['file']);
         $blog->image = $input['file'];
         }
-        if($data['status']='on'){
+        if($data['status']= ""){
             $blog->status=1;
         }else{
             $blog->status=0;
