@@ -1,9 +1,10 @@
 <?php
-
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,10 +53,22 @@ Route::get('/contact', function () {
 Auth::routes();
 
 // Route::get('/admin', [HomeController::class, 'index'])->name('home');
-Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
-    Route::get('/', [HomeController::class, 'index'])->name('admin.home');
+// Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
+//     Route::get('/', [HomeController::class, 'index'])->name('admin.home');
+//     Route::view('service', 'admin.services.list');
+//     Route::resources([
+//         'blog'=>BlogController::class,
+//         'tag'=>TagController::class,
+//     ]);
+//     // Route::get('/blog/checkslug', [BlogController::class,'checkslug'])->name('admin.blog.checkslug');
+// });
+Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
+    Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::view('service', 'admin.services.list');
-    Route::resource('blog','App\Http\Controllers\BlogController');
+    Route::resources([
+        'blog'=>BlogController::class,
+        'tag'=>TagController::class,
+    ]);
 });
 
 

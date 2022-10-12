@@ -5,56 +5,50 @@
 @section('content')
 <!-- Row -->
 <!-- Row -->
-<div class="row">
-    <div class="col-sm-12">
-        <div class="panel panel-default card-view">
-            <div class="panel-heading">
-                <div class="pull-left">
-                    <h6 class="panel-title txt-dark">Blog List</h6>
-                </div>
-                <div class="clearfix"></div>
+<!-- Bordered Table -->
+<div class="col-sm-12">
+    <div class="panel panel-default card-view">
+        <div class="panel-heading">
+            <div class="pull-left">
+                <h6 class="panel-title txt-dark">Bordered Table</h6>
             </div>
-            <div class="panel-wrapper collapse in">
-                <div class="panel-body">
-                    <div class="table-wrap">
-                        <div class="table-responsive">
-                            <table id="datable_1" class="table table-hover display  pb-30" >
-                                <thead>
-                                    <tr>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                    </tr>
+            <div class="pull-right">
+                <a href="{{url('admin/blog/create')}}" class="btn btn-success">Add New</a>
+            </div>
+        </div>
+        <div class="panel-wrapper collapse in">
+            <div class="panel-body">
+                <div class="table-wrap mt-30">
+                    <div class="table-responsive">
+                      <table class="table table-hover table-bordered mb-0">
+                        <thead>
+                          <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Status</th>
+                            <th class="text-nowrap">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($blogs as $blog)
+                            <tr>
+                                <td>{{$blog->title}}</td>
+                                <td>{!! $blog->content !!}</td>
+                                <td>July 11, 2015</td>
+                                <td class="text-nowrap"><a href="#" class="mr-25" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a> <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a> </td>
+                              </tr>
+                            @endforeach
 
-                                </tbody>
-                            </table>
-                        </div>
+                        </tbody>
+                      </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- /Bordered Table -->
+
 <!-- /Row -->
 @endsection
 
