@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class TagController extends Controller
 {
@@ -14,7 +16,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::latest()->paginate(20);
+        return view('admin.tag.list', compact('tags'));
     }
 
     /**
@@ -24,7 +27,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tag.create');
     }
 
     /**
@@ -35,7 +38,18 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|unique:tags,name',
+        ]);
+
+        $tag = Tag::create([
+            'name' => $request->name,
+            'slug' => SlugService::createSlug(Tag::class, 'slug', $request->name),
+            'description' => $request->description,
+        ]);
+
+        Session::flash('success', 'Tag created successfully');
+        return redirect()->back();
     }
 
     /**
@@ -57,7 +71,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('admin.tag.edit', compact('tag'));
     }
 
     /**
@@ -69,7 +83,18 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+        // validation
+        $this->validate($request, [
+            'name' => "required|unique:tags,name,$tag->name",
+        ]);
+
+        $tag->name = $request->name;
+        $tag->slug = SlugService::createSlug(Tag::class, 'slug', $request->name);
+        $tag->description = $request->description;
+        $tag->save();
+
+        Session::flash('success', 'Tag updated successfully');
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +105,12 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        if($tag){
+            $tag->delete();
+
+            Session::flash('success', 'Tag deleted successfully');
+        }
+
+        return redirect()->back();
     }
 }
