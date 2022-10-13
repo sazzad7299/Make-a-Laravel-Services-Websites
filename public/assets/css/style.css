@@ -1904,6 +1904,11 @@ body,
   margin-bottom: 30px;
   color: #4ac4f3;
 }
+.services-area .services-box .item img {
+    display: inline-block;
+    width: 60px;
+    margin-bottom: 30px;
+  }
 .services-area .services-box .item h5 {
   text-transform: capitalize;
   font-weight: 700;

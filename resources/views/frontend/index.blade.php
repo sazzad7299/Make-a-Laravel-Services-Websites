@@ -74,7 +74,7 @@
                         <!-- Single Item -->
                         <div class="single-item">
                             <div class="item">
-                                <i class="flaticon-scroll"></i>
+                                <img src="{{asset('uploads/resolution.png')}}" alt="">
                                 <h5>Digital Marketing
                                 </h5>
                                 <p>
