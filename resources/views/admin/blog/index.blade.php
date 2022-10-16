@@ -10,7 +10,7 @@
     <div class="panel panel-default card-view">
         <div class="panel-heading">
             <div class="pull-left">
-                <h6 class="panel-title txt-dark">Bordered Table</h6>
+                <h6 class="panel-title txt-dark">Blog List</h6>
             </div>
             <div class="pull-right">
                 <a href="{{route('admin.blog.create')}}" class="btn btn-success">Add New</a>
@@ -25,6 +25,7 @@
                           <tr>
                             <th>Image</th>
                             <th>Title</th>
+                            <th>Category</th>
                             <th>Status</th>
                             <th class="text-nowrap">Action</th>
                           </tr>
@@ -34,8 +35,16 @@
                             <tr>
                                 <td><img src="{{asset('thumbnail/'.$blog->image)}}" alt=""></td>
                                 <td>{{$blog->title}}</td>
+                                <td>{{$blog->category->name}}</td>
                                 <td>@if ($blog->status==1) <span class="label label-primary">Active</span>@else<span class="label label-danger">Inactive</span> @endif</td>
-                                <td class="text-nowrap"><a href="#" class="mr-25" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a> <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a> </td>
+                                <td class="d-flex">
+                                    <a href="{{ route('admin.blog.edit', [$blog->id]) }}" class="btn btn-sm btn-primary mr-1"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                    <form action="{{ route('admin.blog.destroy', [$blog->id]) }}" class="mr-5 pull-left" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-sm btn-danger"> <i class="fa fa-close text-white"></i> </button>
+                                    </form>
+                                </td>
                               </tr>
                             @endforeach
 
