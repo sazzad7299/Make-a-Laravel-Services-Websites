@@ -69,13 +69,18 @@ class BlogController extends Controller
             $image = $request->file('image');
             $input['file'] = time().'.'.$image->getClientOriginalExtension();
 
-        $destinationPath = public_path('/thumbnail');
+        $destinationPath1 = public_path('/uploads/blog/small');
+        $destinationPath2 = public_path('/uploads/blog/medium');
+        $destinationPath3 = public_path('/uploads/blog/large');
         $imgFile = Image::make($image->getRealPath());
         $imgFile->resize(150, 150, function ($constraint) {
 		    $constraint->aspectRatio();
-		})->save($destinationPath.'/'.$input['file']);
-        $destinationPath = public_path('/uploads');
-        $image->move($destinationPath, $input['file']);
+		})->save($destinationPath1.'/'.$input['file']);
+        $imgFile->resize(350, 226, function ($constraint) {
+		    $constraint->aspectRatio();
+		})->save($destinationPath2.'/'.$input['file']);
+
+        $image->move($destinationPath3, $input['file']);
         $blog->image = $input['file'];
         }
         if($data['status']= ""){

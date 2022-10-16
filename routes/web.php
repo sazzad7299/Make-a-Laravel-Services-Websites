@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\frontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TagController;
 
@@ -18,51 +19,20 @@ use App\Http\Controllers\TagController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
-Route::get('/about', function () {
-    return view('frontend.about');
-});
-Route::get('/blog', function () {
-    return view('frontend.blog');
-});
-Route::get('/portfolio', function () {
-    return view('frontend.portfolio');
-});
-Route::get('/service', function () {
-    return view('frontend.service');
-});
-Route::get('/service/single', function () {
-    return view('frontend.single');
-});
-Route::get('/free-quote', function () {
-    return view('frontend.free-quote');
-});
-Route::get('/project', function () {
-    return view('frontend.project');
-});
-Route::get('/contact', function () {
-    return view('frontend.contact');
-});
+Route::get('/',[frontendController::class,'home'])->name('home');
+Route::get('/service',[frontendController::class,'service'])->name('service');
+Route::get('/project',[frontendController::class,'project'])->name('project');
+Route::get('/portfolio',[frontendController::class,'portfolio'])->name('portfolio');
+Route::get('/blog',[frontendController::class,'blog'])->name('blog');
+Route::get('/about',[frontendController::class,'about'])->name('about');
 
-// Route::get('/admin/service', function () {
-//     return view('admin.services.list');
-// })->middleware('auth');
+
+Route::get('/contact',[frontendController::class,'contact'])->name('contact');
+
 
 
 Auth::routes();
 
-// Route::get('/admin', [HomeController::class, 'index'])->name('home');
-// Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
-//     Route::get('/', [HomeController::class, 'index'])->name('admin.home');
-//     Route::view('service', 'admin.services.list');
-//     Route::resources([
-//         'blog'=>BlogController::class,
-//         'tag'=>TagController::class,
-//     ]);
-//     // Route::get('/blog/checkslug', [BlogController::class,'checkslug'])->name('admin.blog.checkslug');
-// });
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::view('service', 'admin.services.list');
