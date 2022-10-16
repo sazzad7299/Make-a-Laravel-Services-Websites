@@ -8,7 +8,7 @@
         <div class="panel panel-default card-view">
             <div class="panel-heading">
                 <div class="pull-left">
-                    <h6 class="panel-title txt-dark">Category</h6>
+                    <h6 class="panel-title txt-dark">Tag</h6>
                 </div>
                 <div class="pull-right">
                     <a href="{{ route('admin.tag.create') }}" class="btn btn-success">Add New</a>
