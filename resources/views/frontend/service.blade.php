@@ -17,93 +17,23 @@
             <div class="services-box text-center">
                 <div class="row">
                     <!-- Single Item -->
-                    <div class="col-lg-3 col-md-6 single-item">
-                        <div class="item">
-                            <i class="flaticon-scroll"></i>
-                            <h5>Drag and drop</h5>
-                            <p>
-                                Pianoforte principles our unaffected not for astonished.
-                            </p>
+
+                        @foreach ($frontServices as $serv)
+                        <div class="col-lg-3 col-md-6 single-item">
+                        <a href="">
+                            <div class="single-item">
+                                <div class="item">
+                                    <img src="{{asset('uploads/service/icon/'.$serv->ico)}}" alt="">
+                                    <h5>{{$serv->title}}</h5>
+                                    <p>
+                                        {{ Str::limit(strip_tags( $serv->description)) }}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
                         </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-lg-3 col-md-6 single-item">
-                        <div class="item">
-                            <i class="flaticon-feature"></i>
-                            <h5>Fully customizable</h5>
-                            <p>
-                                Pianoforte principles our unaffected not for astonished.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-lg-3 col-md-6 single-item">
-                        <div class="item">
-                            <i class="flaticon-intersect"></i>
-                            <h5>App integration</h5>
-                            <p>
-                                Pianoforte principles our unaffected not for astonished.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-lg-3 col-md-6 single-item">
-                        <div class="item">
-                            <i class="flaticon-intersection"></i>
-                            <h5>Color Schemes</h5>
-                            <p>
-                                Pianoforte principles our unaffected not for astonished.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-lg-3 col-md-6 single-item">
-                        <div class="item">
-                            <i class="flaticon-resolution"></i>
-                            <h5>High Resolution</h5>
-                            <p>
-                                Pianoforte principles our unaffected not for astonished.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-lg-3 col-md-6 single-item">
-                        <div class="item">
-                            <i class="flaticon-showcase"></i>
-                            <h5>Perfect Showcase</h5>
-                            <p>
-                                Pianoforte principles our unaffected not for astonished.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-lg-3 col-md-6 single-item">
-                        <div class="item">
-                            <i class="flaticon-conversation"></i>
-                            <h5>Helping Support</h5>
-                            <p>
-                                Pianoforte principles our unaffected not for astonished.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-lg-3 col-md-6 single-item">
-                        <div class="item">
-                            <i class="flaticon-customer-support"></i>
-                            <h5>Trusted Service</h5>
-                            <p>
-                                Pianoforte principles our unaffected not for astonished.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
+                        @endforeach
+
                 </div>
             </div>
         </div>

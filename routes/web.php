@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\frontendController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\TagController;
 
 /*
@@ -44,6 +45,7 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
         'blog'=>BlogController::class,
         'tag'=>TagController::class,
         'category'=>CategoryController::class,
+        'service'=>ServicesController::class,
     ]);
 });
 

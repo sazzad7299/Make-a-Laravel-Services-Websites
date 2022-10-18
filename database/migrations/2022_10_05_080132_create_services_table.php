@@ -23,6 +23,7 @@ return new class extends Migration
             $table->mediumText('short_des')->nullable();
             $table->mediumText('description')->nullable();
             $table->string('tag');
+            $table->integer('parent_id')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

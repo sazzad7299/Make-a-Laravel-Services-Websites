@@ -71,83 +71,24 @@
                 <div class="row">
                     <div class="services-carosul owl-carousel owl-theme text-center">
                         <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <img src="{{asset('uploads/resolution.png')}}" alt="">
-                                <h5>Digital Marketing
-                                </h5>
-                                <p>
-                                    Nowadays the most popular marketing platform, where a huge number of internet users
-                                    exists. Through digital marketing, you can easily generate revenue.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-feature"></i>
-                                <h5>Graphic Design</h5>
-                                <p>
 
-                                    It’s a part of brand identity. So if you make meaningful designs for your brand, it
-                                    would deliver a clear message to your consumers.
-                                </p>
+                        @foreach ($frontServices as $serv)
+                        @if ($serv->parent_id == NULL)
+                        <a href="">
+                            <div class="single-item">
+                                <div class="item">
+                                    <img src="{{asset('uploads/service/icon/'.$serv->ico)}}" alt="">
+                                    <h5>{{$serv->title}}</h5>
+                                    <p>
+                                        {{ Str::limit(strip_tags( $serv->description)) }}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
+                        @endif
+                        @endforeach
                         <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-intersect"></i>
-                                <h5> Branding</h5>
-                                <p>
 
-                                    How people perceive your brand. Forge your brand positively in the mind of
-                                    customers. Which will help to increase your sales.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-intersection"></i>
-                                <h5>Web Design & Development</h5>
-                                <p>
-
-                                    Website is one of the most important elements of digital marketing. Therefore making
-                                    a professional and enriching site is beneficial for your company
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-resolution"></i>
-                                <h5>App Design & Development</h5>
-                                <p>
-
-                                    At this time an app is very effective. We offer you android, and iOS apps for
-                                    growing your business faster, get started with us.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-showcase"></i>
-                                <h5> Software</h5>
-                                <p>
-
-                                    Effective software will minimize your cost and maximize your income. The software
-                                    will also save time and you will get advantages in many aspects depending on the
-                                    type of software.
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -168,7 +109,7 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h2>For Your Banding/Web Solution/ETC</h2>
+                        <h2>For Your Digital Marketing</h2>
                         <p>We are here to provide the services to grow your business up. Here, you can find the support
                             of Graphics, Branding, Marketing, Software’s & More</p>
                     </div>
@@ -177,84 +118,21 @@
             <div class="services-box text-center">
                 <div class="row">
                     <div class="services-carosul owl-carousel owl-theme text-center">
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-scroll"></i>
-                                <h5>Digital Marketing
-                                </h5>
-                                <p>
-                                    Nowadays the most popular marketing platform, where a huge number of internet users
-                                    exists. Through digital marketing, you can easily generate revenue.
-                                </p>
+                        @foreach ($frontServices as $serv)
+                        @if ($serv->parent_id == 5)
+                        <a href="">
+                            <div class="single-item">
+                                <div class="item">
+                                    <img src="{{asset('uploads/service/icon/'.$serv->ico)}}" alt="">
+                                    <h5>{{$serv->title}}</h5>
+                                    <p>
+                                        {{ Str::limit(strip_tags( $serv->description)) }}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-feature"></i>
-                                <h5>Graphic Design</h5>
-                                <p>
-
-                                    It's a part of brand identity. So if you make meaningful designs for your brand, it
-                                    would deliver a clear message to your consumers.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-intersect"></i>
-                                <h5> Branding</h5>
-                                <p>
-
-                                    How people perceive your brand. Forge your brand positively in the mind of
-                                    customers. Which will help to increase your sales.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-intersection"></i>
-                                <h5>Web Design & Development</h5>
-                                <p>
-
-                                    Website is one of the most important elements of digital marketing. Therefore making
-                                    a professional and enriching site is beneficial for your company
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-resolution"></i>
-                                <h5>App Design & Development</h5>
-                                <p>
-
-                                    At this time an app is very effective. We offer you android, and iOS apps for
-                                    growing your business faster, get started with us.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-showcase"></i>
-                                <h5> Software</h5>
-                                <p>
-
-                                    Effective software will minimize your cost and maximize your income. The software
-                                    will also save time and you will get advantages in many aspects depending on the
-                                    type of software.
-                                </p>
-                            </div>
-                        </div>
+                        </a>
+                        @endif
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -277,84 +155,19 @@
             <div class="services-box text-center">
                 <div class="row">
                     <div class="services-carosul owl-carousel owl-theme text-center">
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-scroll"></i>
-                                <h5>Digital Marketing
-                                </h5>
-                                <p>
-                                    Nowadays the most popular marketing platform, where a huge number of internet users
-                                    exists. Through digital marketing, you can easily generate revenue.
-                                </p>
+                        @foreach ($frontServices as $serv)
+                        <a href="">
+                            <div class="single-item">
+                                <div class="item">
+                                    <img src="{{asset('uploads/service/icon/'.$serv->ico)}}" alt="">
+                                    <h5>{{$serv->title}}</h5>
+                                    <p>
+                                        {{ Str::limit(strip_tags( $serv->description)) }}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-feature"></i>
-                                <h5>Graphic Design</h5>
-                                <p>
-
-                                    It's a part of brand identity. So if you make meaningful designs for your brand, it
-                                    would deliver a clear message to your consumers.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-intersect"></i>
-                                <h5> Branding</h5>
-                                <p>
-
-                                    How people perceive your brand. Forge your brand positively in the mind of
-                                    customers. Which will help to increase your sales.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-intersection"></i>
-                                <h5>Web Design & Development</h5>
-                                <p>
-
-                                    Website is one of the most important elements of digital marketing. Therefore making
-                                    a professional and enriching site is beneficial for your company
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-resolution"></i>
-                                <h5>App Design & Development</h5>
-                                <p>
-
-                                    At this time an app is very effective. We offer you android, and iOS apps for
-                                    growing your business faster, get started with us.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-showcase"></i>
-                                <h5> Software</h5>
-                                <p>
-
-                                    Effective software will minimize your cost and maximize your income. The software
-                                    will also save time and you will get advantages in many aspects depending on the
-                                    type of software.
-                                </p>
-                            </div>
-                        </div>
+                        </a>
+                        @endforeach
                     </div>
                 </div>
             </div>
