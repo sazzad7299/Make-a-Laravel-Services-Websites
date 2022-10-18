@@ -9,7 +9,7 @@
             <div class="attr-nav button">
                 <ul>
                     <li>
-                        <a href="/free-quote">free quote</a>
+                        <a href="{{route('quote')}}">free quote</a>
                     </li>
                 </ul>
             </div>
@@ -30,22 +30,22 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav navbar-right" data-in="#" data-out="#">
                     <li>
-                        <a class="smooth-menu" href="service">Service</a>
+                        <a class="smooth-menu" href="{{route('service')}}">Service</a>
                     </li>
 
                     <li>
-                        <a class="smooth-menu" href="/portfolio">Portfolio</a>
+                        <a class="smooth-menu" href="{{route('portfolio')}}">Portfolio</a>
                     </li><li>
-                        <a class="smooth-menu" href="/project">Project</a>
+                        <a class="smooth-menu" href="{{route('project')}}">Project</a>
                     </li>
                     <li>
-                        <a class="smooth-menu" href="/blog">Blog</a>
+                        <a class="smooth-menu" href="{{route('blog')}}">Blog</a>
                     </li>
                     <li>
-                        <a class="smooth-menu" href="/about">About</a>
+                        <a class="smooth-menu" href="{{route('about')}}">About</a>
                     </li>
                     <li>
-                        <a class="smooth-menu" href="/contact">Contact</a>
+                        <a class="smooth-menu" href="{{route('contact')}}">Contact</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

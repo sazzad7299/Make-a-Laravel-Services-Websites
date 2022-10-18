@@ -3052,10 +3052,6 @@ body,
   color: #4ac4f3;
 }
 
-.blog-area.single .post-pagi-area a:last-child {
-  float: right;
-}
-
 .blog-area.single .post-pagi-area a:first-child i {
   margin-right: 3px;
 }

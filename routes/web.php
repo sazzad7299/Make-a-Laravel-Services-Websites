@@ -23,8 +23,12 @@ Route::get('/',[frontendController::class,'home'])->name('home');
 Route::get('/service',[frontendController::class,'service'])->name('service');
 Route::get('/project',[frontendController::class,'project'])->name('project');
 Route::get('/portfolio',[frontendController::class,'portfolio'])->name('portfolio');
-Route::get('/blog',[frontendController::class,'blog'])->name('blog');
+Route::get('news/',[frontendController::class,'blog'])->name('blog');
+Route::get('/news/{slug}',[frontendController::class,'singlepost'])->name('singlepost');
 Route::get('/about',[frontendController::class,'about'])->name('about');
+Route::get('/free-quate',[frontendController::class,'freeQuote'])->name('quote');
+Route::get('/tag/{slug}',[frontendController::class,'searchTag'])->name('searchTag');
+Route::get('/category/{slug}',[frontendController::class,'singleCat'])->name('singleCat');
 
 
 Route::get('/contact',[frontendController::class,'contact'])->name('contact');
@@ -42,7 +46,6 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
         'category'=>CategoryController::class,
     ]);
 });
-
 
 
 

@@ -77,18 +77,15 @@ class BlogController extends Controller
             $image = $request->file('image');
             $input['file'] = time().'.'.$image->getClientOriginalExtension();
 
-        $destinationPath1 = public_path('/uploads/blog/small');
-        $destinationPath2 = public_path('/uploads/blog/medium');
-        $destinationPath3 = public_path('/uploads/blog/large');
-        $imgFile = Image::make($image->getRealPath());
-        $imgFile->resize(150, 150, function ($constraint) {
-		    $constraint->aspectRatio();
-		})->save($destinationPath1.'/'.$input['file']);
-        $imgFile->resize(350, 226, function ($constraint) {
-		    $constraint->aspectRatio();
-		})->save($destinationPath2.'/'.$input['file']);
+        $destinationPath1 = public_path('/uploads/blog/small/'.$input['file']);
+        $destinationPath2 = public_path('/uploads/blog/medium/'.$input['file']);
+        $destinationPath3 = public_path('/uploads/blog/large/'.$input['file']);
+        Image::make($image)->resize(1500,700)->save($destinationPath3);
+        Image::make($image)->resize(800,533)->save($destinationPath2);
+        Image::make($image)->resize(null,115,function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath1);
 
-        $image->move($destinationPath3, $input['file']);
         $blog->image = $input['file'];
         }
         if(!empty($data['status'])){
@@ -115,7 +112,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        
     }
 
     /**
@@ -163,21 +160,23 @@ class BlogController extends Controller
         if($request->hasfile('image')){
             $image = $request->file('image');
             $input['file'] = time().'.'.$image->getClientOriginalExtension();
-
-        $destinationPath = public_path('/thumbnail');
-        $imgFile = Image::make($image->getRealPath());
-        $imgFile->resize(150, 150, function ($constraint) {
-		    $constraint->aspectRatio();
-		})->save($destinationPath.'/'.$input['file']);
-
-        $destinationPath = public_path('/uploads');
-        $image->move($destinationPath, $input['file']);
-        //remove priviouse images
-        $image_path1= public_path('thumbnail/'.$blog->image);
-        $image_path2= public_path('uploads/'.$blog->image);
-        unlink($image_path1);
-        unlink($image_path2);
-        $blog->image = $input['file'];
+            $destinationPath1 = public_path('/uploads/blog/small/'.$input['file']);
+            $destinationPath2 = public_path('/uploads/blog/medium/'.$input['file']);
+            $destinationPath3 = public_path('/uploads/blog/large/'.$input['file']);
+            Image::make($image)->resize(1000,550)->save($destinationPath3);
+            Image::make($image)->resize(800,533)->save($destinationPath2);
+            Image::make($image)->resize(null,115,function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath1);
+            if(!empty($blog->image)){
+                $image_path1= public_path('/uploads/blog/small/'.$blog->image);
+                $image_path2= public_path('/uploads/blog/medium/'.$blog->image);
+                $image_path3= public_path('/uploads/blog/large/'.$blog->image);
+                unlink($image_path1);
+                unlink($image_path2);
+                unlink($image_path3);
+            }
+             $blog->image = $input['file'];
         }
         if(!empty($data['status'])){
             $blog->status=$data['status'];

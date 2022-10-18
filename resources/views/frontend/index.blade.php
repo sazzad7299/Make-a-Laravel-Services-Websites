@@ -504,8 +504,8 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="item">
                             <div class="thumb">
-                                <a href="{{url('blog/'.$blog->slug)}}">
-                                    <img src="{{asset('uploads/'.$blog->image)}}" alt="Thumb">
+                                <a href="{{url('news/'.$blog->slug)}}">
+                                    <img src="{{asset('uploads/blog/medium/'.$blog->image)}}" alt="Thumb">
                                     <div class="post-type">
                                         <i class="fas fa-image"></i>
                                     </div>
@@ -513,24 +513,23 @@
                             </div>
                             <div class="info">
                                 <h4>
-                                    <a href="{{url('blog/'.$blog->slug)}}">{{$blog->title}}</a>
+                                    <a href="{{url('news/'.$blog->slug)}}">{{$blog->title}}</a>
                                 </h4>
                                 <div class="meta">
                                     <ul>
-                                        <li><a href="#"><i class="fas fa-calendar-alt "></i> 12 Nov, 2018</a></li>
-                                        <li><a href="#"><i class="fas fa-user"></i> User</a></li>
-                                        <li><a href="#"><i class="fas fa-comments"></i> 23</a></li>
+                                        <li><a href="#"><i class="fas fa-calendar-alt "></i>  {{ date('d M, Y', strtotime($blog->created_at)) }}</a></li>
+                                        <li><a href="#"><i class="fas fa-flag"></i> {{$blog->category->name}}</a></li>
                                     </ul>
                                 </div>
                                 <p style="display: block;overflow:hidden">
                                     {{ Str::limit(strip_tags( $blog->description)) }}
-                                    <a href="{{url('blog/'.$blog->slug)}}">Read more</a>
+                                    <a href="{{url('news/'.$blog->slug)}}">Read more</a>
                                 </p>
                             </div>
                         </div>
                     </div>
                     @endforeach
-
+                    <a class="btn circle btn-theme effect btn-sm m-auto" href="{{route('blog')}}">Load More</a>
 
                 </div>
             </div>

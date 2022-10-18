@@ -33,7 +33,7 @@
                         <tbody>
                             @foreach ($blogs as $blog)
                             <tr>
-                                <td><img src="{{asset('thumbnail/'.$blog->image)}}" alt=""></td>
+                                <td><img src="{{asset('uploads/blog/small/'.$blog->image)}}" alt=""></td>
                                 <td>{{$blog->title}}</td>
                                 <td>{{$blog->category->name}}</td>
                                 <td>@if ($blog->status==1) <span class="label label-primary">Active</span>@else<span class="label label-danger">Inactive</span> @endif</td>

@@ -16,223 +16,36 @@
             </div>
             <div class="blog-items">
                 <div class="row">
+                    @foreach ($blogs as $blog)
                     <div class="col-lg-4 col-md-6">
                         <div class="item">
                             <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                        <div class="post-type">
+                                <a href="{{url('news/'.$blog->slug)}}">
+                                    <img src="{{asset('uploads/blog/medium/'.$blog->image)}}" alt="Thumb">
+                                    <div class="post-type">
                                         <i class="fas fa-image"></i>
                                     </div>
                                 </a>
                             </div>
                             <div class="info">
                                 <h4>
-                                    <a href="single.html">Believe has request not how comfort</a>
+                                    <a href="{{url('news/'.$blog->slug)}}">{{$blog->title}}</a>
                                 </h4>
                                 <div class="meta">
                                     <ul>
-                                        <li><a href="#"><i class="fas fa-calendar-alt "></i> 12 Nov, 2018</a></li>
-                                        <li><a href="#"><i class="fas fa-user"></i> User</a></li>
-                                        <li><a href="#"><i class="fas fa-comments"></i> 23</a></li>
+                                        <li><a href="#"><i class="fas fa-calendar-alt "></i>  {{ date('d M, Y', strtotime($blog->created_at)) }}</a></li>
+                                        <li><a href="#"><i class="fas fa-flag"></i> {{$blog->category->name}}</a></li>
                                     </ul>
                                 </div>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
+                                <p style="display: block;overflow:hidden">
+                                    {{ Str::limit(strip_tags( $blog->description)) }}
+                                    <a href="{{url('news/'.$blog->slug)}}">Read more</a>
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                        <div class="post-type">
-                                        <i class="fas fa-video"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Speaking replying mistress him numerous</a>
-                                </h4>
-                                <div class="meta">
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-calendar-alt "></i> 09 Nov, 2018</a></li>
-                                        <li><a href="#"><i class="fas fa-user"></i> User</a></li>
-                                        <li><a href="#"><i class="fas fa-comments"></i> 47</a></li>
-                                    </ul>
-                                </div>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                        <div class="post-type">
-                                        <i class="fas fa-video"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Speaking replying mistress him numerous</a>
-                                </h4>
-                                <div class="meta">
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-calendar-alt "></i> 09 Nov, 2018</a></li>
-                                        <li><a href="#"><i class="fas fa-user"></i> User</a></li>
-                                        <li><a href="#"><i class="fas fa-comments"></i> 47</a></li>
-                                    </ul>
-                                </div>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                        <div class="post-type">
-                                        <i class="fas fa-video"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Speaking replying mistress him numerous</a>
-                                </h4>
-                                <div class="meta">
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-calendar-alt "></i> 09 Nov, 2018</a></li>
-                                        <li><a href="#"><i class="fas fa-user"></i> User</a></li>
-                                        <li><a href="#"><i class="fas fa-comments"></i> 47</a></li>
-                                    </ul>
-                                </div>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                        <div class="post-type">
-                                        <i class="fas fa-video"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Speaking replying mistress him numerous</a>
-                                </h4>
-                                <div class="meta">
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-calendar-alt "></i> 09 Nov, 2018</a></li>
-                                        <li><a href="#"><i class="fas fa-user"></i> User</a></li>
-                                        <li><a href="#"><i class="fas fa-comments"></i> 47</a></li>
-                                    </ul>
-                                </div>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                        <div class="post-type">
-                                        <i class="fas fa-video"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Speaking replying mistress him numerous</a>
-                                </h4>
-                                <div class="meta">
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-calendar-alt "></i> 09 Nov, 2018</a></li>
-                                        <li><a href="#"><i class="fas fa-user"></i> User</a></li>
-                                        <li><a href="#"><i class="fas fa-comments"></i> 47</a></li>
-                                    </ul>
-                                </div>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                        <div class="post-type">
-                                        <i class="fas fa-video"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Speaking replying mistress him numerous</a>
-                                </h4>
-                                <div class="meta">
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-calendar-alt "></i> 09 Nov, 2018</a></li>
-                                        <li><a href="#"><i class="fas fa-user"></i> User</a></li>
-                                        <li><a href="#"><i class="fas fa-comments"></i> 47</a></li>
-                                    </ul>
-                                </div>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                        <div class="post-type">
-                                        <i class="fas fa-images"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Reasonably conviction solicitude</a>
-                                </h4>
-                                <div class="meta">
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-calendar-alt "></i> 16 Nov, 2018</a></li>
-                                        <li><a href="#"><i class="fas fa-user"></i> User</a></li>
-                                        <li><a href="#"><i class="fas fa-comments"></i> 58</a></li>
-                                    </ul>
-                                </div>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
