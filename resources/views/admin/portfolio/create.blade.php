@@ -12,7 +12,7 @@
                     <h6 class="panel-title txt-dark"></h6>
                 </div>
                 <div class="pull-right">
-                    <a href="{{ route('admin.category.index') }}" class="btn btn-success">All List</a>
+                    <a href="{{ route('admin.portfolio.index') }}" class="btn btn-success">All List</a>
                 </div>
             </div>
             <div class="panel-wrapper collapse in">
