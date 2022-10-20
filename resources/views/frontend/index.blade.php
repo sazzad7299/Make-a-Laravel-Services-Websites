@@ -74,7 +74,7 @@
 
                         @foreach ($frontServices as $serv)
                         @if ($serv->parent_id == NULL)
-                        <a href="">
+                        <a href="{{route('singleService',[$serv->slug])}}">
                             <div class="single-item">
                                 <div class="item">
                                     <img src="{{asset('uploads/service/icon/'.$serv->ico)}}" alt="">

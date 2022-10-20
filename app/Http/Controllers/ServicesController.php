@@ -183,6 +183,21 @@ class ServicesController extends Controller
             }
              $service->image = $input['file'];
         }
+        if($request->hasfile('icon')){
+            $image = $request->file('icon');
+            $input['file'] = time().'.'.$image->getClientOriginalExtension();
+
+        $destinationPath1 = public_path('/uploads/service/icon/'.$input['file']);
+
+        Image::make($image)->resize(null,64,function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath1);
+        if(!empty($service->ico)){
+            $image_path1= public_path('/uploads/service/icon/'.$service->ico);
+            unlink($image_path1);
+        }
+        $service->ico = $input['file'];
+        }
         if(!empty($data['status'])){
             $service->status=$data['status'];
         }else{
@@ -207,5 +222,12 @@ class ServicesController extends Controller
     public function destroy(Services $services)
     {
         //
+    }
+    public function singleService($slug)
+    {
+        $serv = Services::where('slug', $slug)->first();
+        $count=Services::where('parent_id', $serv->id)->count();
+        return view('frontend.singleservice',compact('serv','count'));
+
     }
 }

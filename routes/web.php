@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\frontendController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\TagController;
 
@@ -30,6 +31,7 @@ Route::get('/about',[frontendController::class,'about'])->name('about');
 Route::get('/free-quate',[frontendController::class,'freeQuote'])->name('quote');
 Route::get('/tag/{slug}',[frontendController::class,'searchTag'])->name('searchTag');
 Route::get('/category/{slug}',[frontendController::class,'singleCat'])->name('singleCat');
+Route::get('/service/{slug}',[ServicesController::class,'singleService'])->name('singleService');
 
 
 Route::get('/contact',[frontendController::class,'contact'])->name('contact');
@@ -46,6 +48,8 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
         'tag'=>TagController::class,
         'category'=>CategoryController::class,
         'service'=>ServicesController::class,
+        'portfolio'=>PortfolioController::class,
+
     ]);
 });
 

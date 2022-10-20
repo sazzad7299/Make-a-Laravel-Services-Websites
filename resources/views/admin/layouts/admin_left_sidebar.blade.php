@@ -30,15 +30,10 @@
             <a @if(\Request::segment(2)=='portfolio') class="active" @endif href="javascript:void(0);" data-toggle="collapse" data-target="#pages_dr1"><div class="pull-left"><i class="zmdi zmdi-collection-plus mr-20"></i><span class="right-nav-text">Portfolio</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
             <ul id="pages_dr1" class="collapse collapse-level-1 two-col-list">
                 <li>
-                    <a class="active-page" href="blank.html">Blank Page</a>
+                    <a  href="{{route('admin.portfolio.create')}}">Add Portfolio</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" data-toggle="collapse" data-target="#auth_dr">Authantication pages<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-                    <ul id="auth_dr" class="collapse collapse-level-2">
-                        <li>
-                            <a href="login.html">Login</a>
-                        </li>
-                    </ul>
+                    <a  href="{{route('admin.portfolio.index')}}">Portfolio List</a>
                 </li>
             </ul>
         </li>
