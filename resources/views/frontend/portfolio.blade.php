@@ -16,108 +16,26 @@
             </div>
             <div class="blog-items">
                 <div class="row">
+
+                    @foreach ($portfolio as $item)
                     <div class="col-lg-4 col-md-6">
                         <div class="item">
                             <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
+                                <a href="{{route('singlePortfolio',[$item->slug])}}">
+                                    <img src="{{asset('uploads/portfolio/medium/'.$item->image)}}" alt="Thumb">
                                 </a>
                             </div>
                             <div class="info">
                                 <h4>
-                                    <a href="single.html">Speaking replying mistress him numerous</a>
+                                    <a href="{{route('singlePortfolio',[$item->slug])}}">{{$item->title}}</a>
                                 </h4>
                                 <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
+                                    {{ Str::limit(strip_tags( $item->desc)) }}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Speaking replying mistress him numerous</a>
-                                </h4>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Speaking replying mistress him numerous</a>
-                                </h4>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Speaking replying mistress him numerous</a>
-                                </h4>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Speaking replying mistress him numerous</a>
-                                </h4>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Speaking replying mistress him numerous</a>
-                                </h4>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
 
                 </div>
             </div>

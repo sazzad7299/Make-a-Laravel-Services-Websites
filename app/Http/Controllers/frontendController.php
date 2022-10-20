@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use App\Models\Blog;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
 class frontendController extends Controller
@@ -19,7 +20,8 @@ class frontendController extends Controller
     }
     public function portfolio()
     {
-        return view('frontend.portfolio');
+        $portfolio = Portfolio::where('status',1)->latest()->get();
+        return view('frontend.portfolio',compact('portfolio'));
     }
     public function project()
     {
@@ -53,6 +55,17 @@ class frontendController extends Controller
         }
         else abort('404');
 
+    }
+    public function singlePortfolio($slug)
+    {
+
+        $portfolio = Portfolio::where('slug', $slug)->count();
+        if($portfolio>0){
+            $item = Portfolio::where('slug', $slug)->first();
+
+            return view('frontend.singleportfolio',compact('item'));
+        }
+        else abort('404');
     }
     public function searchTag ($tag)
     {

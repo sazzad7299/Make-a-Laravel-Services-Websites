@@ -31,7 +31,7 @@
                             {!!$post->description!!}
                             <div class="post-pagi-area">
                                @if(!empty($previous))
-                               <a href="{{ route('singlepost', [$previous->slug]) }}" class="float-left"><i class="fas fa-arrow-left"></i> Previus Post</a>
+                               <a href="{{ route('singlepost', [$previous->slug]) }}" class="float-left"><i class="fas fa-arrow-left"></i> Previous Post</a>
                                @endif
                                @if(!empty($next))
                                <a href="{{ route('singlepost', [$next->slug]) }}" class="float-right">Next Post <i class="fas fa-arrow-right"></i></a>
