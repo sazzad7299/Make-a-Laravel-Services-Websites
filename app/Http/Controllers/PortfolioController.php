@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Session;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PortfolioController extends Controller
@@ -109,7 +110,8 @@ class PortfolioController extends Controller
      */
     public function edit(Portfolio $portfolio)
     {
-        //
+
+        return view('admin.portfolio.edit', compact('portfolio'));
     }
 
     /**
@@ -121,7 +123,55 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, Portfolio $portfolio)
     {
-        //
+        $data = $request->all();
+        $request->validate(
+            [
+                'title' => 'required',
+                'content'=> 'required',
+
+            ],
+            [
+                'title.required' => 'Enter :attribute First',
+                'content.required' => 'Enter :attribute First',
+            ]
+        );
+        $portfolio->title = $data['title'];
+        $portfolio->slug = SlugService::createSlug(Portfolio::class, 'slug', $request->title);
+        $portfolio->desc = $data['content'];
+
+        if($request->hasfile('image')){
+            $image = $request->file('image');
+            $input['file'] = time().'.'.$image->getClientOriginalExtension();
+
+        $destinationPath1 = public_path('/uploads/portfolio/small');
+        $destinationPath2 = public_path('/uploads/portfolio/medium');
+        $destinationPath3 = public_path('/uploads/portfolio/large');
+        Image::make($image)->resize(1500,700)->save($destinationPath3.'/'.$input['file']);
+        Image::make($image)->resize(800,533)->save($destinationPath2.'/'.$input['file']);
+        Image::make($image)->resize(null,115,function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath1.'/'.$input['file']);
+
+                //unlink image path
+                unlink($destinationPath1.'/'.$portfolio->image);
+                unlink($destinationPath2.'/'.$portfolio->image);
+                unlink($destinationPath3.'/'.$portfolio->image);
+        $portfolio->image = $input['file'];
+        }
+
+        if(!empty($data['status'])){
+            $portfolio->status=$data['status'];
+        }else{
+            $portfolio->status=0;
+        }
+
+        $saved = $portfolio->save();
+
+        if(!$saved){
+            return back()->with("error","Sorry! Try again");
+        }else{
+            return back()->with("success","Portfolio update Successfully");
+        }
     }
 
     /**
@@ -132,6 +182,20 @@ class PortfolioController extends Controller
      */
     public function destroy(Portfolio $portfolio)
     {
-        //
+        if($portfolio){
+            if(!empty($portfolio->image)){
+                $destinationPath1 = public_path('/uploads/portfolio/small');
+                $destinationPath2 = public_path('/uploads/portfolio/medium');
+                $destinationPath3 = public_path('/uploads/portfolio/large');
+                unlink($destinationPath1.'/'.$portfolio->image);
+                unlink($destinationPath2.'/'.$portfolio->image);
+                unlink($destinationPath3.'/'.$portfolio->image);
+            }
+            $portfolio->delete();
+            Session::flash('success','Portfolio deleted successfully');
+        }
+        
+
+        return redirect()->back();
     }
 }

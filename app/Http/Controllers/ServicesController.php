@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Models\Services;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Session;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class ServicesController extends Controller
@@ -219,9 +220,23 @@ class ServicesController extends Controller
      * @param  \App\Models\Services  $services
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Services $services)
+    public function destroy(Services $service)
     {
-        //
+        if($service){
+            if(!empty($service->image)){
+                $destinationPath1 = public_path('/uploads/service/small');
+                $destinationPath2 = public_path('/uploads/service/medium');
+                $destinationPath3 = public_path('/uploads/service/large');
+                unlink($destinationPath1.'/'.$service->image);
+                unlink($destinationPath2.'/'.$service->image);
+                unlink($destinationPath3.'/'.$service->image);
+            }
+            $service->delete();
+            Session::flash('success','Portfolio deleted successfully');
+        }
+
+        return redirect()->back();
+
     }
     public function singleService($slug)
     {
