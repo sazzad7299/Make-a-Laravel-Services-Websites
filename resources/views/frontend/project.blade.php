@@ -1,9 +1,12 @@
 @extends('frontend.layouts.main')
 @section('main-content')
 
-    <!-- Start Banner
-    ============================================= -->
-    <div class="banner-area content-double banner-top-padding text-dark  small-text" style="background-color: #edf5ff ;">
+
+
+    @foreach ($project as $item )
+    <div class="banner-area content-double banner-top-padding text-dark  small-text" @if ($loop->iteration % 2==0)
+        style="background-color: #f1f1f1 ;"
+    @endif >
         <div class="box-table">
             <div class="box-cell">
                 <div class="container">
@@ -11,91 +14,16 @@
                         <div class="row align-center">
                             <div class="col-lg-6 left-info simple-video">
                                 <div class="content" data-animation="animated fadeInUpBig">
-                                    <h1>Latest Top Project</h1>
+                                    <h1>{{$item->title}}</h1>
                                     <p>
-                                        Celebrated delightful an especially increasing instrument am. Indulgence contrasted sufficient to unpleasant in in insensible favourable. Latter remark hunted enough vulgar say man. Sitting hearted on it without me.
+                                        {!! Str::limit(strip_tags( $item->desc),500) !!}
                                     </p>
-                                    <a class="btn circle btn-light effect btn-md" href="#">View More</a>
+                                    <a class="btn circle btn-gray effect btn-sm" href="#">View More</a>
 
                                 </div>
                             </div>
                             <div class="col-lg-6 right-info">
-                                <img src="assets/img/800x600.png" alt="Thumb">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="banner-area content-double banner-top-padding text-dark  small-text" style="background-color: #ffffff ;">
-        <div class="box-table">
-            <div class="box-cell">
-                <div class="container">
-                    <div class="double-items">
-                        <div class="row align-center">
-                            <div class="col-lg-6 left-info simple-video">
-                                <div class="content" data-animation="animated fadeInUpBig">
-                                    <h1>Hello Bizer Project</h1>
-                                    <p>
-                                        Celebrated delightful an especially increasing instrument am. Indulgence contrasted sufficient to unpleasant in in insensible favourable. Latter remark hunted enough vulgar say man. Sitting hearted on it without me.
-                                    </p>
-                                    <a class="btn circle btn-gray effect btn-md" href="#">View More</a>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-6 right-info">
-                                <img src="assets/img/800x600.png" alt="Thumb">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="banner-area content-double banner-top-padding text-dark  small-text" style="background-color: #edf5ff ;">
-        <div class="box-table">
-            <div class="box-cell">
-                <div class="container">
-                    <div class="double-items">
-                        <div class="row align-center">
-                            <div class="col-lg-6 left-info simple-video">
-                                <div class="content" data-animation="animated fadeInUpBig">
-                                    <h1>One Of the Project</h1>
-                                    <p>
-                                        Celebrated delightful an especially increasing instrument am. Indulgence contrasted sufficient to unpleasant in in insensible favourable. Latter remark hunted enough vulgar say man. Sitting hearted on it without me.
-                                    </p>
-                                    <a class="btn circle btn-light effect btn-md" href="#">View More</a>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-6 right-info">
-                                <img src="assets/img/800x600.png" alt="Thumb">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="banner-area content-double banner-top-padding text-dark  small-text" style="background-color: #ffffff ;">
-        <div class="box-table">
-            <div class="box-cell">
-                <div class="container">
-                    <div class="double-items">
-                        <div class="row align-center">
-                            <div class="col-lg-6 left-info simple-video">
-                                <div class="content" data-animation="animated fadeInUpBig">
-                                    <h1>One Of the Project 2</h1>
-                                    <p>
-                                        Celebrated delightful an especially increasing instrument am. Indulgence contrasted sufficient to unpleasant in in insensible favourable. Latter remark hunted enough vulgar say man. Sitting hearted on it without me.
-                                    </p>
-                                    <a class="btn circle btn-gray effect btn-md" href="#">View More</a>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-6 right-info">
-                                <img src="assets/img/800x600.png" alt="Thumb">
+                                <img src="{{asset('uploads/project/large/'.$item->image)}}" alt="Thumb">
                             </div>
                         </div>
                     </div>
@@ -104,6 +32,7 @@
         </div>
     </div>
 
+    @endforeach
     <!-- End Banner -->
 
     <!-- Start Contact Area

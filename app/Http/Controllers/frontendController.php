@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use App\Models\Blog;
+use App\Models\Project;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class frontendController extends Controller
     }
     public function project()
     {
-        return view('frontend.project');
+        $project = Project::where('status',1)->latest()->get();
+        return view('frontend.project',compact('project'));
     }
     public function blog()
     {
