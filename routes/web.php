@@ -32,11 +32,13 @@ Route::get('/news/{slug}',[frontendController::class,'singlepost'])->name('singl
 Route::get('/about',[frontendController::class,'about'])->name('about');
 Route::get('/free-quate',[frontendController::class,'freeQuote'])->name('quote');
 Route::get('/tag/{slug}',[frontendController::class,'searchTag'])->name('searchTag');
-Route::get('/category/{slug}',[frontendController::class,'singleCat'])->name('singleCat');
+Route::get('/category/{slug}',[CategoryController::class,'singleCat'])->name('singleCat');
 Route::get('/service/{slug}',[ServicesController::class,'singleService'])->name('singleService');
+Route::get('/submain/{id}',[ServicesController::class,'subMain']);
 
 
 Route::get('/contact',[frontendController::class,'contact'])->name('contact');
+Route::post('/send-message',[frontendController::class,'sendmessage'])->name('sendmessage');
 
 
 

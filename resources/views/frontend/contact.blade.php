@@ -47,11 +47,12 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <form action="assets/mail/contact.php" method="POST" class="contact-form">
+                    <form action="{{route('sendmessage')}}" method="POST">
+                        @csrf
                         <div class="col-lg-12">
                             <div class="row">
                                 <div class="form-group">
-                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text">
+                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
                                     <span class="alert-error"></span>
                                 </div>
                             </div>
@@ -60,7 +61,7 @@
                             <div class="row">
                                 <div class="form-group">
                                     <input class="form-control" id="email" name="email" placeholder="Email*"
-                                        type="email">
+                                        type="email" required>
                                     <span class="alert-error"></span>
                                 </div>
                             </div>
@@ -68,7 +69,7 @@
                         <div class="col-lg-12">
                             <div class="row">
                                 <div class="form-group">
-                                    <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
+                                    <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text" required>
                                     <span class="alert-error"></span>
                                 </div>
                             </div>
@@ -76,21 +77,23 @@
                         <div class="col-lg-12">
                             <div class="row">
                                 <div class="form-group comments">
-                                    <textarea class="form-control" id="comments" name="comments"
+                                    <textarea class="form-control" id="message" name="message"
                                         placeholder="Tell Us About Project *" rows="4" cols="50"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="row">
-                                <button type="submit" name="submit" id="submit">
+                                <button type="submit" name="submit" id="submit c">
                                     Send Message <i class="fa fa-paper-plane"></i>
                                 </button>
                             </div>
                         </div>
                         <!-- Alert Message -->
                         <div class="col-lg-12 alert-notification">
-                            <div id="message" class="alert-msg"></div>
+                            @if(Session::has('success'))
+                            <p>{!! Session('success') !!}</p>
+                            @endif
                         </div>
                     </form>
                 </div>

@@ -1,15 +1,14 @@
 @extends('frontend.layouts.main')
 @section('main-content')
-    <!-- Start Blog
-    ============================================= -->
+
     <div id="blog" class="blog-area bg-gray default-padding bottom-less">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h2>Our Blog</h2>
+                        <h2>{{$category->name}}</h2>
                         <p>
-                            Learning day desirous informed expenses material returned six the. She enabled invited exposed him another. Reasonably conviction solicitude me mr at discretion reasonable. Age out full gate bed day lose.
+                            {{$category->description}}
                         </p>
                     </div>
                 </div>
@@ -50,5 +49,6 @@
             </div>
         </div>
     </div>
-    <!-- End Blog -->
+
+    <!-- Start Footer
 @endsection

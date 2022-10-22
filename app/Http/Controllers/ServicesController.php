@@ -245,4 +245,10 @@ class ServicesController extends Controller
         return view('frontend.singleservice',compact('serv','count'));
 
     }
+
+    public function subMain($id)
+    {
+        $subserveice = Services::where('parent_id',$id)->where('status',1)->get();
+        return response()->json($subserveice);
+    }
 }

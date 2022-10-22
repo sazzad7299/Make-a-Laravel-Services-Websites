@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -115,4 +116,17 @@ class CategoryController extends Controller
         }
 
     }
+    public function singleCat($slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+        if($category){
+            $blogs = Blog::where('cat_id', $category->id)->paginate(9);
+
+            return view('frontend.singlecat', compact(['category', 'blogs']));
+        }else {
+            return redirect()->route('website');
+        }
+
+    }
+    
 }

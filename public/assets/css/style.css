@@ -1949,7 +1949,7 @@ body,
   left: 100%;
   top: 41px;
   content: "";
-  background-image: url(assets/img/direction-sign.png);
+  background-image: url(../img/direction-sign.png);
   height: 50px;
   width: 100px;
   background-repeat: no-repeat;
@@ -3537,7 +3537,7 @@ body,
   padding-top: 15px;
 }
 
-.contact-us-area .contact-form button {
+.contact-us-area button {
   background: #4ac4f3 none repeat scroll 0 0;
   border: medium none;
   box-shadow: inherit;
@@ -3553,7 +3553,7 @@ body,
   border-radius: 30px;
 }
 
-.contact-us-area .contact-form button i {
+.contact-us-area  button i {
   margin-left: 5px;
 }
 

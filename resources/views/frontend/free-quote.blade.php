@@ -41,22 +41,20 @@
                                     <input type="text" class="form-control" placeholder="Facebook Page/Website Url">
                                   </div>
                                   <div class="col-md-6 col-lg-4">
-                                    <select name="service" id="" class="form-control">
-                                        <option value="Service"> Sercive</option>
-                                        <option value="Service"> Sercive</option>
-                                        <option value="Service"> Sercive</option>
-                                        <option value="Service"> Sercive</option>
-                                        <option value="Service"> Sercive</option>
+                                    <select name="mainservice" id="mainservice" class="form-control">
+                                        <option value="" style="display: none" selected>Select Services</option>
+                                        @foreach ( $frontServices as $service)
+                                        @if ($service->parent_id == NULL)
+                                        <option value="{{$service->id}}"> {{$service->title}}</option>
+                                        @endif
+                                        @endforeach
+
 
                                     </select>
                                   </div>
                                   <div class="col-md-6 col-lg-4">
-                                    <select name="service" id="" class="form-control">
-                                        <option value="Service"> Sercive</option>
-                                        <option value="Service"> Sercive</option>
-                                        <option value="Service"> Sercive</option>
-                                        <option value="Service"> Sercive</option>
-                                        <option value="Service"> Sercive</option>
+                                    <select name="subservice" id="subservice" class="form-control">
+                    
 
                                     </select>
                                   </div>

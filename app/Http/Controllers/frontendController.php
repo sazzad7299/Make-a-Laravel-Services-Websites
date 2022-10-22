@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Project;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class frontendController extends Controller
 {
@@ -40,6 +41,7 @@ class frontendController extends Controller
     }
     public function contact()
     {
+
         return view('frontend.contact');
     }
     public function singlepost($slug)
@@ -81,5 +83,19 @@ class frontendController extends Controller
     public function freeQuote()
     {
         return view('frontend.free-quote');
+    }
+    public function sendmessage(Request $req)
+    {
+        $data = $req->all();
+        // dd($data);
+        $email = $data['email'];
+        $messageData = ['email'=>$email,'name'=>$data['name'],'phone'=>$data['phone'],'text'=>$data['message']];
+       $send = Mail::send('mail.contact',$messageData,function($message) use($email){
+            $message->to($email)->subject('New Contact List Added');
+        });
+
+        if($send){
+            return back()->with("success","Service Created Successfully");
+        }
     }
 }
