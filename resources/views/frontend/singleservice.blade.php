@@ -36,7 +36,7 @@
                                     <p>
                                         {!! $serv->description !!}
                                     </p>
-                                    <a class="btn circle btn-theme effect btn-sm popup-youtube" href="{{route('quote')}}">Get a Free Quote <i class="fas fa-envelope"></i></a>
+                                    <a class="btn circle btn-theme effect btn-sm popup-youtube" href="{{route('quote2')}}">Get a Free Quote <i class="fas fa-envelope"></i></a>
                                 </div>
                             </div>
                             <div class="col-lg-7 right-info">

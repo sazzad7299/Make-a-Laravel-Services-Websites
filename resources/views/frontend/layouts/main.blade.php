@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Softing - Software Landing Page">
+    <meta name="description" content="{{$titles->site_title}} - {{$titles->site_des}}">
 
     <!-- ========== Page Title ========== -->
-    <title>Softing - Software Landing Page</title>
+    <title>{{$titles->site_title}} - {{$titles->site_des}}</title>
 
     <!-- ========== Favicon Icon ========== -->
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
@@ -77,19 +77,24 @@
             --------------------------------------------*/
             $('#mainservice').on('change', function() {
                 var mainId = this.value;
-                alert(idCountry);
+                alert(mainId);
                 $("#subservice").html('');
                 $.ajax({
-                    type: 'get',
-                    url: 'submain/'+mainId,
-                    success: function(response) {
-                        $('#subservice').html('<option value="">-- Select State --</option>');
-                    },
-                    error: function(error) {
+                        type: 'get',
+                        url: '/submain/' + mainId,
+                        success: function(response) {
+                            $('#subservice').html('<option value="all">Selecet All</option>');
 
-                    }
+                            $.each(response, function(key, value) {
+                                $('#subservice').append('<option value="' + value.title + '">' + value.title + '</option>');
+                            });
 
-                });
+
+                        },
+                        error: function(error) {
+
+                        }
+                    });
             });
 
             /*------------------------------------------

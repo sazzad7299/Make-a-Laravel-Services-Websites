@@ -112,7 +112,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        
+
     }
 
     /**
@@ -153,8 +153,12 @@ class BlogController extends Controller
 
         $data = $request->all();
         // echo "<pre>";print_r($data);die;
-        $blog->title = $data['title'];
-        $blog->slug = SlugService::createSlug(Blog::class, 'slug', $request->title);
+
+        if($data['title']  != $blog->title){
+            $blog->slug = SlugService::createSlug(Blog::class, 'slug', $request->title);
+            $blog->title = $data['title'];
+        }
+
         $blog->description = $data['content'];
         $blog->tag = $data['tag'];
         if($request->hasfile('image')){

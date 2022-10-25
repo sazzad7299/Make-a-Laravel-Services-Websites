@@ -7,10 +7,8 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h2>Our Blog</h2>
-                        <p>
-                            Learning day desirous informed expenses material returned six the. She enabled invited exposed him another. Reasonably conviction solicitude me mr at discretion reasonable. Age out full gate bed day lose.
-                        </p>
+                <h2>{{$titles->blog_title}}</h2>
+                    <p>{{$titles->blog_text}} </p>
                     </div>
                 </div>
             </div>
@@ -34,7 +32,7 @@
                                 <div class="meta">
                                     <ul>
                                         <li><a href="#"><i class="fas fa-calendar-alt "></i>  {{ date('d M, Y', strtotime($blog->created_at)) }}</a></li>
-                                        <li><a href="#"><i class="fas fa-flag"></i> {{$blog->category->name}}</a></li>
+                                        <li><a href="{{route('singleCat',[$blog->category->slug])}}"><i class="fas fa-flag"></i> {{$blog->category->name}}</a></li>
                                     </ul>
                                 </div>
                                 <p style="display: block;overflow:hidden">
@@ -45,7 +43,13 @@
                         </div>
                     </div>
                     @endforeach
-
+                    <div class="col-lg-12 col-md-12 pagi-area">
+                        <nav aria-label="navigation">
+                            <ul class="pagination">
+                                {{ $blogs->links() }}
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>

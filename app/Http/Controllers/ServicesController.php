@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tag;
 use App\Models\Services;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Session;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -250,5 +251,18 @@ class ServicesController extends Controller
     {
         $subserveice = Services::where('parent_id',$id)->where('status',1)->get();
         return response()->json($subserveice);
+    }
+    public function settings(Request $request)
+    {
+        if($request->isMethod('post')){
+            $data = $request->all();
+            $titles = DB::table('section_titles')->first();
+            DB::table('section_titles')->update($data);
+
+            return back()->with('success','Portfolio deleted successfully');
+        }
+        $titles = DB::table('section_titles')->first();
+        // dd($titles);
+        return view('admin.website', compact('titles'));
     }
 }

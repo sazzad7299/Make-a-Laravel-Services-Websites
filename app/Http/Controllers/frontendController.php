@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tag;
 use App\Models\Blog;
 use App\Models\Project;
+use App\Models\Services;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -18,6 +19,7 @@ class frontendController extends Controller
     }
     public function service()
     {
+        
         return view('frontend.service');
     }
     public function portfolio()
@@ -32,7 +34,7 @@ class frontendController extends Controller
     }
     public function blog()
     {
-        $blogs = Blog::with('category')->get();
+        $blogs = Blog::with('category')->where('status',1)->latest()->simplePaginate(9);
         return view('frontend.blog',compact('blogs'));
     }
     public function about()
@@ -46,7 +48,7 @@ class frontendController extends Controller
     }
     public function singlepost($slug)
     {
-        $blogs = Blog::where('status',1)->latest()->take(5)->get();
+
         $post = Blog::where('slug', $slug)->count();
         if($post>0){
             $post = Blog::where('slug', $slug)->first();
@@ -55,7 +57,7 @@ class frontendController extends Controller
 
             // get next user id
             $next = Blog::where('id', '>', $post->id)->first();
-            return view('frontend.single',compact('post','previous','next','blogs'));
+            return view('frontend.single',compact('post','previous','next'));
         }
         else abort('404');
 
@@ -84,6 +86,10 @@ class frontendController extends Controller
     {
         return view('frontend.free-quote');
     }
+    public function popup()
+    {
+        return view('frontend.popup');
+    }
     public function sendmessage(Request $req)
     {
         $data = $req->all();
@@ -95,7 +101,25 @@ class frontendController extends Controller
         });
 
         if($send){
-            return back()->with("success","Service Created Successfully");
+            return back()->with("success","Thanks for messaging, We will contact you as soon as possible");
         }
+    }
+    public function freequotesend(Request $request)
+    {
+        if($request->isMethod('post')){
+            $data = $request->all();
+        $serv = Services::where('id', $data['mainservice'])->first();
+        $email = $data['email'];
+        $messageData = ['email'=>$email,'name'=>$data['name'],'phone'=>$data['phone'],'text'=>$data['comments'], 'mainservice'=>$serv->title,'subservice'=>$data['subservice'],'url'=>$data['url']];
+       $send = Mail::send('mail.freeQuote',$messageData,function($message) use($email){
+            $message->to($email)->subject('New Contact List Added');
+        });
+        if($send){
+            return back()->with("success","Thanks for messaging, We will contact you as soon as possible");
+        }
+        }else{
+            abort(404);
+        }
+
     }
 }

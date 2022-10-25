@@ -16,7 +16,7 @@
                                     <p>
                                         Celebrated delightful an especially increasing instrument am. Indulgence contrasted sufficient to unpleasant in in insensible favourable. Latter remark hunted enough vulgar say man. Sitting hearted on it without me.
                                     </p>
-                                    <a class="btn circle btn-theme border btn-md" href="#">free quote</a>
+                                    <a class="btn circle btn-theme effect btn-sm popup-youtube" href="{{route('quote2')}}">Get a Free Quote <i class="fas fa-envelope"></i></a>
 
                                 </div>
                             </div>

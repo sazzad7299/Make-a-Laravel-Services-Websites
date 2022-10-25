@@ -4,6 +4,9 @@
     .no-background .nav  li a{
             color:white!important;
         }
+        .no-background .nav .dropdown-menu li a{
+            color: #333333!important;
+        }
 </style>
 @stop
 @section('main-content')
@@ -226,11 +229,9 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h2>Our Process</h2>
+                        <h2>{{$titles->progress_title}}</h2>
                         <p>
-                            Learning day desirous informed expenses material returned six the. She enabled invited
-                            exposed him another. Reasonably conviction solicitude me mr at discretion reasonable. Age
-                            out full gate bed day lose.
+                            {{$titles->progress_text}}
                         </p>
                     </div>
                 </div>
@@ -302,11 +303,9 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h2>Latest News</h2>
+                        <h2>{{$titles->blog_title}}</h2>
                         <p>
-                            Learning day desirous informed expenses material returned six the. She enabled invited
-                            exposed him another. Reasonably conviction solicitude me mr at discretion reasonable. Age
-                            out full gate bed day lose.
+                            {{$titles->blog_text}}
                         </p>
                     </div>
                 </div>
@@ -331,7 +330,7 @@
                                 <div class="meta">
                                     <ul>
                                         <li><a href="#"><i class="fas fa-calendar-alt "></i>  {{ date('d M, Y', strtotime($blog->created_at)) }}</a></li>
-                                        <li><a href="#"><i class="fas fa-flag"></i> {{$blog->category->name}}</a></li>
+                                        <li><a href="{{route('singleCat',[$blog->category->slug])}}"><i class="fas fa-flag"></i> {{$blog->category->name}}</a></li>
                                     </ul>
                                 </div>
                                 <p style="display: block;overflow:hidden">
@@ -357,7 +356,7 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading single text-center">
-                        <h2>Customer Review</h2>
+                        <h2>{{$titles->testimonial_title}}</h2>
                     </div>
                 </div>
             </div>

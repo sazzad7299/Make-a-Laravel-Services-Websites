@@ -819,6 +819,10 @@ nav.navbar.bootsnav.sticked .attr-nav.social li {
 .carousel-shadow .site-heading {
   margin-bottom: 35px;
 }
+/* link */
+.site-heading li:hover a{
+    color: #00b6f1;
+}
 
 /* ==============================================================
      # Bradcrumb
@@ -3855,11 +3859,12 @@ footer .f-item .address .info {
   padding-right: 0;
 }
 
-footer .f-item .address .info h5 {
+footer .f-item .address .info p {
   font-weight: 600;
   margin-bottom: 0;
   text-transform: uppercase;
   color: #232323;
+  font-size: 12px;
 }
 
 footer .f-item .address li i {
@@ -3912,8 +3917,7 @@ footer .f-item.link li a:hover {
 
 footer .footer-bottom {
   border-top: 1px solid #e7e7e7;
-  margin-top: 40px;
-  padding-top: 30px;
+
 }
 
 footer .footer-bottom p {

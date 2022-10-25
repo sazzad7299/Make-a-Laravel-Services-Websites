@@ -55,7 +55,7 @@
                         <section class="site-heading">
                             <h2 style="font-size: 20px">Recent Post</h2>
                             <ul>
-                                @foreach ($blogs as $recent)
+                                @foreach ($recentBlogs as $recent)
                                 <li style="border-bottom: 1px dashed #4ac4f3;">
                                     <a href="{{route('singlepost',[$recent->slug])}}">{{ $recent->title }}<br><span>{{ date('d M, Y', strtotime($recent->created_at)) }}</span>
                                     </a>

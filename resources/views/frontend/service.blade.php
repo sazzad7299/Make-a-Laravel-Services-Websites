@@ -7,9 +7,9 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h2>What We Do</h2>
+                        <h2>{{$titles->service_title}}</h2>
                         <p>
-                            Learning day desirous informed expenses material returned six the. She enabled invited exposed him another. Reasonably conviction solicitude me mr at discretion reasonable. Age out full gate bed day lose.
+                            {{$titles->service_text}}
                         </p>
                     </div>
                 </div>
@@ -18,21 +18,24 @@
                 <div class="row">
                     <!-- Single Item -->
 
-                        @foreach ($frontServices as $serv)
-                        <div class="col-lg-3 col-md-6 single-item">
-                        <a href="{{route('singleService',[$serv->slug])}}">
-                            <div class="single-item">
-                                <div class="item">
-                                    <img src="{{asset('uploads/service/icon/'.$serv->ico)}}" alt="">
-                                    <h5>{{$serv->title}}</h5>
-                                    <p>
-                                        {{ Str::limit(strip_tags( $serv->description)) }}
-                                    </p>
+
+                        @forelse ( $categories2 as $cat )
+                              <div class="col-lg-3 col-md-6 single-item">
+                                <a href="{{route('singleService',[$cat->slug])}}">
+                                    <div class="single-item">
+                                        <div class="item">
+                                            <img src="{{asset('uploads/service/icon/'.$cat->ico)}}" alt="">
+                                            <h5>{{$cat->title}}</h5>
+                                            <p>
+                                                {{ Str::limit(strip_tags( $cat->description)) }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
                                 </div>
-                            </div>
-                        </a>
-                        </div>
-                        @endforeach
+                            @empty
+                             <p>No Services Avaiable</p>
+                            @endforelse
 
                 </div>
             </div>

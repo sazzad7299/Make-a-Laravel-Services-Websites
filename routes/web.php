@@ -36,9 +36,12 @@ Route::get('/category/{slug}',[CategoryController::class,'singleCat'])->name('si
 Route::get('/service/{slug}',[ServicesController::class,'singleService'])->name('singleService');
 Route::get('/submain/{id}',[ServicesController::class,'subMain']);
 
+Route::get('/popup',[frontendController::class,'popup'])->name('quote2');
+
 
 Route::get('/contact',[frontendController::class,'contact'])->name('contact');
 Route::post('/send-message',[frontendController::class,'sendmessage'])->name('sendmessage');
+Route::match(['get','post'],'/send-quote',[frontendController::class,'freequotesend'])->name('freequotesend');
 
 
 
@@ -46,6 +49,7 @@ Auth::routes();
 
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::match(['get','post'],'/settings',[ServicesController::class,'settings'])->name('settings');
     Route::view('service', 'admin.services.list');
     Route::resources([
         'blog'=>BlogController::class,
