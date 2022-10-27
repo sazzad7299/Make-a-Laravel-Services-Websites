@@ -259,10 +259,46 @@ class ServicesController extends Controller
             $titles = DB::table('section_titles')->first();
             DB::table('section_titles')->update($data);
 
-            return back()->with('success','Portfolio deleted successfully');
+            return back()->with('success','Site Settings Updated');
         }
         $titles = DB::table('section_titles')->first();
         // dd($titles);
         return view('admin.website', compact('titles'));
+    }
+
+    public function pages(Request $request,$page)
+    {
+        if($request->isMethod('post')){
+
+            if($request->hasfile('banner')){
+                $image = $request->file('banner');
+                $input['file'] = time().'.'.$image->getClientOriginalExtension();
+
+            $destinationPath1 = public_path('/uploads/pages/'.$input['file']);
+
+            Image::make($image)->resize( function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath1);
+            // if(!empty($service->ico)){
+            //     $image_path1= public_path('/uploads/service/icon/'.$service->ico);
+            //     unlink($image_path1);
+            // }
+            $data['banner'] = $input['file'];
+            }
+            $data['heading'] = $request->heading;
+            $data['desc'] = $request->desc;
+
+
+            DB::table('pages')->where('id',$page)->update($data);
+            return back()->with('success','Page  Update Successfully');
+        }else{
+            $page = DB::table('pages')->where(['slug'=>$page])->first();
+            if($page){
+                return view('admin.page',compact('page'));
+            }else{
+                abort(404);
+            }
+        }
+
     }
 }

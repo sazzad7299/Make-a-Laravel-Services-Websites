@@ -18,7 +18,7 @@
                 <div class="col-lg-6 address">
                     <div class="address-items">
                         <div class="google-maps">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.853593695426!2d90.42200211462506!3d23.788227293247925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a8e4b5650966719%3A0x3414b666234f80a1!2sHelloBizer%20-%20Business%20Service%20Provider!5e0!3m2!1sen!2sbd!4v1661169583763!5m2!1sen!2sbd"></iframe>
+                            {!! $titles->map !!}
                         </div>
                     </div>
                 </div>

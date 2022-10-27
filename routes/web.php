@@ -50,6 +50,7 @@ Auth::routes();
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::match(['get','post'],'/settings',[ServicesController::class,'settings'])->name('settings');
+    Route::match(['get','post'],'/pages/{about}',[ServicesController::class,'pages'])->name('pages');
     Route::view('service', 'admin.services.list');
     Route::resources([
         'blog'=>BlogController::class,

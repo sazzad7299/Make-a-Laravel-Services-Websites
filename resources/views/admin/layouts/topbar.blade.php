@@ -5,7 +5,7 @@
             <div class="logo-wrap">
                 <a href="index.html">
                     <img class="brand-img" src="{{asset('assets/img/logo.png')}}" alt="brand"/>
-                    <span class="brand-text">Hound</span>
+                    <span class="brand-text">Hellobizer</span>
                 </a>
             </div>
         </div>
@@ -39,9 +39,7 @@
                     <li>
                         <a href="inbox.html"><i class="zmdi zmdi-email"></i><span>Inbox</span></a>
                     </li>
-                    <li>
-                        <a href="#"><i class="zmdi zmdi-settings"></i><span>Settings</span></a>
-                    </li>
+                    
                     <li class="divider"></li>
                     <li class="sub-menu show-on-hover">
                         <a href="#" class="dropdown-toggle pr-0 level-2-drp"><i class="zmdi zmdi-check text-success"></i> available</a>

@@ -12,18 +12,8 @@
                             </p>
                             <h4>Social Address</h4>
                                 <ul class="social">
-                                    <li class="facebook">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    </li>
-                                    <li class="twitter">
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                    </li>
-                                    <li class="pinterest">
-                                        <a href="#"><i class="fab fa-pinterest"></i></a>
-                                    </li>
-                                    <li class="instagram">
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
-                                    </li>
+
+                                    {!! $titles->social !!}
                                 </ul>
                         </div>
                     </div>
@@ -78,7 +68,7 @@
                                     </div>
                                     <div class="info">
                                         <p>Location:</p>
-                                        <span>Level- 02, BTI Premier Shopping Complex, Shahajadpur, Dhaka -1212
+                                        <span>{{$titles->address}}
                                         </span>
                                     </div>
                                 </li>

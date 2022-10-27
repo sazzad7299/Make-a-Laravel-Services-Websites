@@ -12,16 +12,16 @@
                         <div class="row align-center">
                             <div class="col-lg-5 left-info simple-video">
                                 <div class="content" data-animation="animated fadeInUpBig">
-                                    <h1>We Help Businesses <span> Get More</span> Rank, Traffic And Sale</h1>
+                                    <h1>{{$about->heading}}</h1>
                                     <p>
-                                        Celebrated delightful an especially increasing instrument am. Indulgence contrasted sufficient to unpleasant in in insensible favourable. Latter remark hunted enough vulgar say man. Sitting hearted on it without me.
+                                        {{$about->desc}}
                                     </p>
                                     <a class="btn circle btn-theme effect btn-sm popup-youtube" href="{{route('quote2')}}">Get a Free Quote <i class="fas fa-envelope"></i></a>
 
                                 </div>
                             </div>
                             <div class="col-lg-7 right-info">
-                                <img src="assets/img/800x600.png" alt="Thumb">
+                                <img src="{{asset('uploads/pages/'.$about->banner)}}" alt="Thumb">
                             </div>
                         </div>
                     </div>

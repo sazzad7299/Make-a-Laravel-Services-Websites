@@ -1,3 +1,13 @@
+<?php $__env->startSection('frontcss'); ?>
+<style>
+    .no-background .nav  li a{
+            color:white!important;
+        }
+        .no-background .nav .dropdown-menu li a{
+            color: #333333!important;
+        }
+</style>
+<?php $__env->stopSection(); ?>
 <?php $__env->startSection('main-content'); ?>
         <!-- Start Banner
     ============================================= -->
@@ -11,7 +21,7 @@
                                 <div class="content" data-animation="animated fadeInUpBig">
                                     <h1>One Stop Solution for Your Business</h1>
                                 </div>
-
+                                
                                 <div class="subscribe-area   text-center">
                                     <div class="subscribe col-md-8 col-sm-12 col-md-auto">
                                         <form action="#">
@@ -34,7 +44,7 @@
                                         </form>
                                     </div>
                                 </div>
-
+                                
                             </div>
                         </div>
                     </div>
@@ -47,8 +57,7 @@
         </div>
     </div>
     <!-- End Banner -->
-    <!-- Start Services
-    ============================================= -->
+    <!--======================Start Services======================= -->
     <div id="services" class="services-area bg-theme-small default-padding bottom-less">
         <div class="container">
             <div class="row">
@@ -64,83 +73,25 @@
                 <div class="row">
                     <div class="services-carosul owl-carousel owl-theme text-center">
                         <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-scroll"></i>
-                                <h5>Digital Marketing
-                                </h5>
-                                <p>
-                                    Nowadays the most popular marketing platform, where a huge number of internet users
-                                    exists. Through digital marketing, you can easily generate revenue.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-feature"></i>
-                                <h5>Graphic Design</h5>
-                                <p>
 
-                                    It’s a part of brand identity. So if you make meaningful designs for your brand, it
-                                    would deliver a clear message to your consumers.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-intersect"></i>
-                                <h5> Branding</h5>
-                                <p>
+                        <?php $__currentLoopData = $frontServices; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $serv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($serv->parent_id == NULL): ?>
+                        <a href="<?php echo e(route('singleService',[$serv->slug])); ?>">
+                            <div class="single-item">
+                                <div class="item">
+                                    <img src="<?php echo e(asset('uploads/service/icon/'.$serv->ico)); ?>" alt="">
+                                    <h5><?php echo e($serv->title); ?></h5>
+                                    <p>
+                                        <?php echo e(Str::limit(strip_tags( $serv->description))); ?>
 
-                                    How people perceive your brand. Forge your brand positively in the mind of
-                                    customers. Which will help to increase your sales.
-                                </p>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
+                        <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-intersection"></i>
-                                <h5>Web Design & Development</h5>
-                                <p>
 
-                                    Website is one of the most important elements of digital marketing. Therefore making
-                                    a professional and enriching site is beneficial for your company
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-resolution"></i>
-                                <h5>App Design & Development</h5>
-                                <p>
-
-                                    At this time an app is very effective. We offer you android, and iOS apps for
-                                    growing your business faster, get started with us.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-showcase"></i>
-                                <h5> Software</h5>
-                                <p>
-
-                                    Effective software will minimize your cost and maximize your income. The software
-                                    will also save time and you will get advantages in many aspects depending on the
-                                    type of software.
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -155,14 +106,13 @@
     </div>
     <!-- End Emi Banner Area -->
 
-        <!-- Start Services
-    ============================================= -->
+<!--  ====================Start Branding========================= -->
     <div id="services" class="services-area bg-theme-small default-padding bottom-less">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h2>For Your Banding/Web Solution/ETC</h2>
+                        <h2>For Your Digital Marketing</h2>
                         <p>We are here to provide the services to grow your business up. Here, you can find the support
                             of Graphics, Branding, Marketing, Software’s & More</p>
                     </div>
@@ -171,93 +121,30 @@
             <div class="services-box text-center">
                 <div class="row">
                     <div class="services-carosul owl-carousel owl-theme text-center">
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-scroll"></i>
-                                <h5>Digital Marketing
-                                </h5>
-                                <p>
-                                    Nowadays the most popular marketing platform, where a huge number of internet users
-                                    exists. Through digital marketing, you can easily generate revenue.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-feature"></i>
-                                <h5>Graphic Design</h5>
-                                <p>
+                        <?php $__currentLoopData = $frontServices; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $serv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($serv->parent_id == 9): ?>
+                        <a href="">
+                            <div class="single-item">
+                                <div class="item">
+                                    <img src="<?php echo e(asset('uploads/service/icon/'.$serv->ico)); ?>" alt="">
+                                    <h5><?php echo e($serv->title); ?></h5>
+                                    <p>
+                                        <?php echo e(Str::limit(strip_tags( $serv->description))); ?>
 
-                                    It's a part of brand identity. So if you make meaningful designs for your brand, it
-                                    would deliver a clear message to your consumers.
-                                </p>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-intersect"></i>
-                                <h5> Branding</h5>
-                                <p>
-
-                                    How people perceive your brand. Forge your brand positively in the mind of
-                                    customers. Which will help to increase your sales.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-intersection"></i>
-                                <h5>Web Design & Development</h5>
-                                <p>
-
-                                    Website is one of the most important elements of digital marketing. Therefore making
-                                    a professional and enriching site is beneficial for your company
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-resolution"></i>
-                                <h5>App Design & Development</h5>
-                                <p>
-
-                                    At this time an app is very effective. We offer you android, and iOS apps for
-                                    growing your business faster, get started with us.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-showcase"></i>
-                                <h5> Software</h5>
-                                <p>
-
-                                    Effective software will minimize your cost and maximize your income. The software
-                                    will also save time and you will get advantages in many aspects depending on the
-                                    type of software.
-                                </p>
-                            </div>
-                        </div>
+                        </a>
+                        <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Services -->
+<!-- End Services -->
 
-            <!-- Start Best Deals
-    ============================================= -->
+<!--=====================Start Best Deals ======================== -->
     <div id="services" class="services-area bg-theme-small default-padding bottom-less">
         <div class="container">
             <div class="row">
@@ -272,99 +159,33 @@
             <div class="services-box text-center">
                 <div class="row">
                     <div class="services-carosul owl-carousel owl-theme text-center">
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-scroll"></i>
-                                <h5>Digital Marketing
-                                </h5>
-                                <p>
-                                    Nowadays the most popular marketing platform, where a huge number of internet users
-                                    exists. Through digital marketing, you can easily generate revenue.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-feature"></i>
-                                <h5>Graphic Design</h5>
-                                <p>
+                        <?php $__currentLoopData = $frontServices; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $serv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <a href="">
+                            <div class="single-item">
+                                <div class="item">
+                                    <img src="<?php echo e(asset('uploads/service/icon/'.$serv->ico)); ?>" alt="">
+                                    <h5><?php echo e($serv->title); ?></h5>
+                                    <p>
+                                        <?php echo e(Str::limit(strip_tags( $serv->description))); ?>
 
-                                    It's a part of brand identity. So if you make meaningful designs for your brand, it
-                                    would deliver a clear message to your consumers.
-                                </p>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-intersect"></i>
-                                <h5> Branding</h5>
-                                <p>
-
-                                    How people perceive your brand. Forge your brand positively in the mind of
-                                    customers. Which will help to increase your sales.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-intersection"></i>
-                                <h5>Web Design & Development</h5>
-                                <p>
-
-                                    Website is one of the most important elements of digital marketing. Therefore making
-                                    a professional and enriching site is beneficial for your company
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-resolution"></i>
-                                <h5>App Design & Development</h5>
-                                <p>
-
-                                    At this time an app is very effective. We offer you android, and iOS apps for
-                                    growing your business faster, get started with us.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="single-item">
-                            <div class="item">
-                                <i class="flaticon-showcase"></i>
-                                <h5> Software</h5>
-                                <p>
-
-                                    Effective software will minimize your cost and maximize your income. The software
-                                    will also save time and you will get advantages in many aspects depending on the
-                                    type of software.
-                                </p>
-                            </div>
-                        </div>
+                        </a>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Services -->
-
-    <!-- Start Why Chose Us
-    ============================================= -->
+<!-- End Services -->
+<!-- ====================Start Why Chose Us========================= -->
     <div id="about" class="choseus-area default-padding">
         <div class="container">
             <div class="choseus-items">
                 <div class="row">
                     <div class="col-lg-6 thumb">
-                        <img src="assets/img/illustration/1.png" alt="Thumb">
+                        <img src="<?php echo e(asset('assets/img/illustration/1.png')); ?>" alt="Thumb">
                     </div>
                     <div class="col-lg-6 info">
                         <h2>Create your app page <br>with expert developer</h2>
@@ -402,23 +223,18 @@
             </div>
         </div>
     </div>
-    <div class="container">
+<!-- End Why Us -->
 
-    </div>
-    <!-- End Why Us -->
-
-    <!-- Start Work Process Area
-    ============================================= -->
+<!--=====================Start Work Process Area======================== -->
     <div class="work-process-area bg-gray default-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h2>Our Process</h2>
+                        <h2><?php echo e($titles->progress_title); ?></h2>
                         <p>
-                            Learning day desirous informed expenses material returned six the. She enabled invited
-                            exposed him another. Reasonably conviction solicitude me mr at discretion reasonable. Age
-                            out full gate bed day lose.
+                            <?php echo e($titles->progress_text); ?>
+
                         </p>
                     </div>
                 </div>
@@ -482,30 +298,30 @@
             </div>
         </div>
     </div>
+<!--=====================Start Work Process End======================== -->
 
-    <!-- Start Blog
-    ============================================= -->
+ <!-- ======================Start Blog======================= -->
     <div id="blog" class="blog-area bg-gray default-padding bottom-less">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h2>Latest News</h2>
+                        <h2><?php echo e($titles->blog_title); ?></h2>
                         <p>
-                            Learning day desirous informed expenses material returned six the. She enabled invited
-                            exposed him another. Reasonably conviction solicitude me mr at discretion reasonable. Age
-                            out full gate bed day lose.
+                            <?php echo e($titles->blog_text); ?>
+
                         </p>
                     </div>
                 </div>
             </div>
             <div class="blog-items">
                 <div class="row">
+                    <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="col-lg-4 col-md-6">
                         <div class="item">
                             <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
+                                <a href="<?php echo e(url('news/'.$blog->slug)); ?>">
+                                    <img src="<?php echo e(asset('uploads/blog/medium/'.$blog->image)); ?>" alt="Thumb">
                                     <div class="post-type">
                                         <i class="fas fa-image"></i>
                                     </div>
@@ -513,78 +329,25 @@
                             </div>
                             <div class="info">
                                 <h4>
-                                    <a href="single.html">Believe has request not how comfort</a>
+                                    <a href="<?php echo e(url('news/'.$blog->slug)); ?>"><?php echo e($blog->title); ?></a>
                                 </h4>
                                 <div class="meta">
                                     <ul>
-                                        <li><a href="#"><i class="fas fa-calendar-alt "></i> 12 Nov, 2018</a></li>
-                                        <li><a href="#"><i class="fas fa-user"></i> User</a></li>
-                                        <li><a href="#"><i class="fas fa-comments"></i> 23</a></li>
+                                        <li><a href="#"><i class="fas fa-calendar-alt "></i>  <?php echo e(date('d M, Y', strtotime($blog->created_at))); ?></a></li>
+                                        <li><a href="<?php echo e(route('singleCat',[$blog->category->slug])); ?>"><i class="fas fa-flag"></i> <?php echo e($blog->category->name); ?></a></li>
                                     </ul>
                                 </div>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an
-                                    balls so chief so. Moment an little remain
+                                <p style="display: block;overflow:hidden">
+                                    <?php echo e(Str::limit(strip_tags( $blog->description))); ?>
+
+                                    <a href="<?php echo e(url('news/'.$blog->slug)); ?>">Read more</a>
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                    <div class="post-type">
-                                        <i class="fas fa-video"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Speaking replying mistress him numerous</a>
-                                </h4>
-                                <div class="meta">
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-calendar-alt "></i> 09 Nov, 2018</a></li>
-                                        <li><a href="#"><i class="fas fa-user"></i> User</a></li>
-                                        <li><a href="#"><i class="fas fa-comments"></i> 47</a></li>
-                                    </ul>
-                                </div>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an
-                                    balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="single.html">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                    <div class="post-type">
-                                        <i class="fas fa-images"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="info">
-                                <h4>
-                                    <a href="single.html">Reasonably conviction solicitude</a>
-                                </h4>
-                                <div class="meta">
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-calendar-alt "></i> 16 Nov, 2018</a></li>
-                                        <li><a href="#"><i class="fas fa-user"></i> User</a></li>
-                                        <li><a href="#"><i class="fas fa-comments"></i> 58</a></li>
-                                    </ul>
-                                </div>
-                                <p>
-                                    Always polite moment on is warmth spirit it to hearts. Downs those still witty an
-                                    balls so chief so. Moment an little remain
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <a class="btn circle btn-theme effect btn-sm m-auto" href="<?php echo e(route('blog')); ?>">Load More</a>
+
                 </div>
             </div>
         </div>
@@ -598,7 +361,7 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading single text-center">
-                        <h2>Customer Review</h2>
+                        <h2><?php echo e($titles->testimonial_title); ?></h2>
                     </div>
                 </div>
             </div>
@@ -663,82 +426,8 @@
 
 
 
-    <!-- Start Contact Area
-    ============================================= -->
-    <div id="contact" class="contact-us-area default-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
-                        <h2>Contact Us</h2>
-                        <p>
-                            Learning day desirous informed expenses material returned six the. She enabled invited
-                            exposed him another. Reasonably conviction solicitude me mr at discretion reasonable. Age
-                            out full gate bed day lose.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 address">
-                    <div class="address-items">
-                        <div class="google-maps">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.853593695426!2d90.42200211462506!3d23.788227293247925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a8e4b5650966719%3A0x3414b666234f80a1!2sHelloBizer%20-%20Business%20Service%20Provider!5e0!3m2!1sen!2sbd!4v1661169583763!5m2!1sen!2sbd"></iframe>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 contact-form">
-                    <h2>Let's lalk about your idea</h2>
-                    <form action="assets/mail/contact.php" method="POST" class="contact-form">
-                        <div class="col-lg-12">
-                            <div class="row">
-                                <div class="form-group">
-                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text">
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="row">
-                                <div class="form-group">
-                                    <input class="form-control" id="email" name="email" placeholder="Email*"
-                                        type="email">
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="row">
-                                <div class="form-group">
-                                    <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="row">
-                                <div class="form-group comments">
-                                    <textarea class="form-control" id="comments" name="comments"
-                                        placeholder="Tell Us About Project *" rows="4" cols="50"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="row">
-                                <button type="submit" name="submit" id="submit">
-                                    Send Message <i class="fa fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Alert Message -->
-                        <div class="col-lg-12 alert-notification">
-                            <div id="message" class="alert-msg"></div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Start Contact Area-->
+     <?php echo $__env->make('frontend.getintouch', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- End Contact -->
 <?php $__env->stopSection(); ?>
 

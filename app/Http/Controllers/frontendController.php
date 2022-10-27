@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Models\Services;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class frontendController extends Controller
@@ -19,7 +20,7 @@ class frontendController extends Controller
     }
     public function service()
     {
-        
+
         return view('frontend.service');
     }
     public function portfolio()
@@ -39,12 +40,13 @@ class frontendController extends Controller
     }
     public function about()
     {
-        return view('frontend.about');
+        $about = DB::table('pages')->where(['slug'=>'about'])->first();
+        return view('frontend.about',compact('about'));
     }
     public function contact()
     {
-
-        return view('frontend.contact');
+        $contact = DB::table('pages')->where(['slug'=>'contact'])->first();
+        return view('frontend.contact',compact('contact'));
     }
     public function singlepost($slug)
     {

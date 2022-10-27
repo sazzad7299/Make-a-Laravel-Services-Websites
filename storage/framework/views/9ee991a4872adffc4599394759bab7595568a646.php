@@ -9,7 +9,7 @@
             <div class="attr-nav button">
                 <ul>
                     <li>
-                        <a href="/free-quote">free quote</a>
+                        <a href="<?php echo e(route('quote')); ?>">free quote</a>
                     </li>
                 </ul>
             </div>
@@ -21,7 +21,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="/">
-                    <img src="assets/img/logo.png" class="logo logo-scrolled" alt="Logo">
+                    <img src="<?php echo e(asset('assets/img/logo.png')); ?>" class="logo logo-scrolled" alt="Logo">
                 </a>
             </div>
             <!-- End Header Navigation -->
@@ -29,23 +29,43 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav navbar-right" data-in="#" data-out="#">
-                    <li>
-                        <a class="smooth-menu" href="service">Service</a>
-                    </li>
+                    <li class="dropdown dropdown-right">
+                        <a href="<?php echo e(route('service')); ?>" class="dropdown-toggle smooth-menu" data-toggle="dropdown" >Service</a>
+                        <ul class="dropdown-menu">
+                            <?php $__empty_1 = true; $__currentLoopData = $categories2; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                              <?php if(($cat->children->count()==0)): ?>
+                              <li><a href="<?php echo e(route('singleService',[$cat->slug])); ?>"><?php echo e($cat->title); ?></a></li>
+                              <?php else: ?>
+                              <li class="dropdown dropdown-right"><a href="<?php echo e(route('singleService',[$cat->slug])); ?>" class="dropdown-toggle smooth-menu" data-toggle="dropdown"><?php echo e($cat->title); ?></a>
+                                <ul  class="dropdown-menu">
 
+                                    <?php $__currentLoopData = $cat->children; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $child): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li><a href="<?php echo e(route('singleService',[$child->slug])); ?>"> <?php echo e($child->title); ?></a></li>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </ul>
+                            </li>
+                              <?php endif; ?>
+
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                             <p>No Services Avaiable</p>
+                            <?php endif; ?>
+
+
+                        </ul>
+                    </li>
                     <li>
-                        <a class="smooth-menu" href="/portfolio">Portfolio</a>
+                        <a class="smooth-menu" href="<?php echo e(route('portfolio')); ?>">Portfolio</a>
                     </li><li>
-                        <a class="smooth-menu" href="/project">Project</a>
+                        <a class="smooth-menu" href="<?php echo e(route('project')); ?>">Project</a>
                     </li>
                     <li>
-                        <a class="smooth-menu" href="/blog">Blog</a>
+                        <a class="smooth-menu" href="<?php echo e(route('blog')); ?>">Blog</a>
                     </li>
                     <li>
-                        <a class="smooth-menu" href="/about">About</a>
+                        <a class="smooth-menu" href="<?php echo e(route('about')); ?>">About</a>
                     </li>
                     <li>
-                        <a class="smooth-menu" href="/contact">Contact</a>
+                        <a class="smooth-menu" href="<?php echo e(route('contact')); ?>">Contact</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

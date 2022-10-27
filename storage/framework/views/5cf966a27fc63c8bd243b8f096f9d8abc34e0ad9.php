@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6 item">
                         <div class="f-item">
-                            <img src="assets/img/logo.png" alt="Logo">
+                            <img src="<?php echo e(asset('assets/img/logo.png')); ?>" alt="Logo">
                             <p>
                                 One Stop Solution for Your Business
                             </p>
@@ -27,86 +27,83 @@
                                 </ul>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 item">
-                        <div class="f-item link">
-                            <h4>Quick LInk</h4>
+                    <div class="col-lg-2 col-md-6 item">
+                        <section class="site-heading">
+                            <h2 style="font-size: 18px">Qwick Link</h2>
                             <ul>
-                                <li>
-                                    <a href="#"><i class="fas fa-angle-right"></i> Home</a>
+                                <li style="border-bottom: 1px dashed #4ac4f3;">
+                                    <a class="smooth-menu" href="<?php echo e(route('service')); ?>">Service</a>
                                 </li>
-                                <li>
-                                    <a href="#"><i class="fas fa-angle-right"></i> About us</a>
+                                <li style="border-bottom: 1px dashed #4ac4f3;">
+                                    <a class="smooth-menu" href="<?php echo e(route('portfolio')); ?>">Portfolio</a>
                                 </li>
-                                <li>
-                                    <a href="#"><i class="fas fa-angle-right"></i> Compnay History</a>
+                                <li style="border-bottom: 1px dashed #4ac4f3;">
+                                    <a class="smooth-menu" href="<?php echo e(route('project')); ?>">Project</a>
                                 </li>
-                                <li>
-                                    <a href="#"><i class="fas fa-angle-right"></i> Features</a>
+                                <li style="border-bottom: 1px dashed #4ac4f3;">
+                                    <a class="smooth-menu" href="<?php echo e(route('about')); ?>">About</a>
                                 </li>
-                                <li>
-                                    <a href="#"><i class="fas fa-angle-right"></i> Blog Page</a>
+                                <li style="border-bottom: 1px dashed #4ac4f3;">
+                                    <a class="smooth-menu" href="<?php echo e(route('contact')); ?>">Contact</a>
+                                </li>
+                                <li >
+                                    <a class="smooth-menu" href="<?php echo e(route('blog')); ?>">Blog</a>
                                 </li>
                             </ul>
-                        </div>
+                        </section><!-- .widget -->
                     </div>
                     <div class="col-lg-3 col-md-6 item">
-                        <div class="f-item link">
-                            <h4>Community</h4>
+                        <section class="site-heading">
+                            <h2 style="font-size: 18px">Recent Post</h2>
                             <ul>
-                                <li>
-                                    <a href="#"><i class="fas fa-angle-right"></i> Career</a>
+                                <?php $__currentLoopData = $recentBlogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recent): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <li style="border-bottom: 1px dashed #4ac4f3;">
+                                    <a href="<?php echo e(route('singlepost',[$recent->slug])); ?>"><?php echo e($recent->title); ?>
+
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="#"><i class="fas fa-angle-right"></i> Leadership</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fas fa-angle-right"></i> Strategy</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fas fa-angle-right"></i> Services</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fas fa-angle-right"></i> History</a>
-                                </li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+
                             </ul>
-                        </div>
+                        </section><!-- .widget -->
                     </div>
-                    <div class="col-lg-3 col-md-6 item">
-                        <div class="f-item twitter-widget">
-                            <h4>Contact Info</h4>
-                            <div class="address">
-                                <ul>
-                                    <li>
-                                        <div class="icon">
-                                            <i class="fa fa-location-arrow" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="info">
-                                            <h5>Location:</h5>
-                                            <span>Level- 02, BTI Premier Shopping Complex, Shahajadpur, Dhaka -1212
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <i class="fas fa-envelope"></i>
-                                        </div>
-                                        <div class="info">
-                                            <h5>Email:</h5>
-                                            <span>support@validtheme.com</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <i class="fas fa-phone"></i>
-                                        </div>
-                                        <div class="info">
-                                            <h5>Phone:</h5>
-                                            <span>+44-20-7328-4499</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="col-lg-4 col-md-6 item f-item">
+
+                        <section class="site-heading address">
+                            <h2 style="font-size: 18px">Contact info</h2>
+                            <ul>
+                                <li style="border-bottom: 1px dashed #4ac4f3;">
+                                    <div class="icon">
+                                        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="info">
+                                        <p>Location:</p>
+                                        <span>Level- 02, BTI Premier Shopping Complex, Shahajadpur, Dhaka -1212
+                                        </span>
+                                    </div>
+                                </li>
+                                <li style="border-bottom: 1px dashed #4ac4f3;">
+                                    <div class="icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="info">
+                                        <p>Email:</p>
+                                        <span>support@validtheme.com</span>
+                                    </div>
+                                </li>
+                                <li style="border-bottom: 1px dashed #4ac4f3;">
+                                    <div class="icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="info">
+                                        <p>Phone:</p>
+                                        <span>+44-20-7328-4499</span>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </section><!-- .widget -->
                     </div>
                 </div>
             </div>
@@ -126,7 +123,7 @@
                                     <a href="#">License</a>
                                 </li>
                                 <li>
-                                    <a href="#">Support</a>
+                                    <a href="#">Polices</a>
                                 </li>
                             </ul>
                         </div>
