@@ -59,6 +59,17 @@
                 </li>
             </ul>
         </li>
+        <li style="display: none">
+            <a @if(\Request::segment(2)=='team') class="active" @endif href="javascript:void(0);" data-toggle="collapse" data-target="#pages_drteam"><div class="pull-left"><i class=" glyphicon glyphicon-user mr-20"></i><span class="right-nav-text">Team</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+            <ul id="pages_drteam" class="collapse collapse-level-1 two-col-list">
+                <li>
+                    <a  href="{{url('admin/blog')}}">List</a>
+                </li>
+                <li>
+                    <a href="{{url('admin/blog/create')}}">Add</a>
+                </li>
+            </ul>
+        </li>
         <li>
             <a @if(\Request::segment(2)=='pages') class="active" @endif href="javascript:void(0);" data-toggle="collapse" data-target="#pages_dr4"><div class="pull-left"><i class="glyphicon glyphicon-book mr-20"></i><span class="right-nav-text">Pages</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
             <ul id="pages_dr4" class="collapse collapse-level-1 two-col-list">

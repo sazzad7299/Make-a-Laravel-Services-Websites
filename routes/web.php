@@ -10,6 +10,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,7 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
         'service'=>ServicesController::class,
         'portfolio'=>PortfolioController::class,
         'project'=>ProjectController::class,
+        'team'=>TeamController::class,
 
     ]);
 });

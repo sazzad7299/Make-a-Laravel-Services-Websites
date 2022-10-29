@@ -47,7 +47,9 @@ Table of contents
   padding: 0;
   margin: 0;
 }
-
+*:focus {
+    outline: none;
+}
 html {
   width: 100%;
   height: 100%;
@@ -242,7 +244,9 @@ input {
 .bg-light {
   background-color: #ffffff !important;
 }
-
+a.active{
+    color: #4ac4f3!important;
+}
 .bg-theme {
   background-color: #4ac4f3;
 }
@@ -1304,6 +1308,29 @@ body,
 .banner-area .width-max img {
     max-width: 120%;
 }
+
+.banner-area .subscribe .stylish-input-group{
+ position: relative;
+}
+.banner-area .subscribe .stylish-input-group input#email{
+    padding-left: 60px;
+   }
+.banner-area .subscribe .stylish-input-group span.input-group-addon{
+    position: absolute;
+    left: 0;
+    z-index: 9999;
+
+
+   }
+   .banner-area .subscribe .stylish-input-group span.input-group-addon button{
+    font-size: 22px;
+    color: #4ac4f3;
+    width: 40px;
+    height: 50px;
+    border-radius: 2px;
+    border:none;
+
+   }
 
 /* Animation delays */
 .banner-area .item h1:first-child,
@@ -3318,101 +3345,6 @@ body,
   text-transform: capitalize;
 }
 
-
-/* ==============================================================
-     # Subscribe Area
-=================================================================== */
-
-.subscribe-area h2 {
-  font-weight: 600;
-}
-
-.subscribe-area h3 {
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.col-md-8.col-md-offset-2 > h2 {
-}
-
-.subscribe-area form .input-group {
-  margin: 30px auto auto;
-  min-width: 450px;
-}
-
-.subscribe-area form .input-group span {
-  background: transparent none repeat scroll 0 0;
-  border: medium none;
-  padding: 0;
-}
-
-.subscribe-area .subscribe form .input-group select{
-  border: 2px solid #102040;
-  -webkit-border-radius: 30px 0px 0px 30px;
-  -moz-border-radius: 30px 0px 0px 30px;
-  border-radius: 30px 0px 0px 30px;
-  box-shadow: inherit;
-  min-height: 60px;
-  padding-left: 20px;
-}
-.subscribe-area .subscribe form .input-group input{
-  border: 2px solid #102040;
-  -webkit-border-radius: 0px 30px 30px 0px;
-  -moz-border-radius: px 30px 30px 0px;
-  border-radius: px 30px 30px 0px;
-  box-shadow: inherit;
-  min-height: 60px;
-  padding-left: 20px;
-}
-
-.subscribe-area form .input-group button {
-  background: #4ac4f3 none repeat scroll 0 0;
-  border: medium none;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  color: #ffffff;
-  height: 100%;
-  line-height: 60px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 60px;
-  z-index: 9;
-}
-.subscribe{
-  margin: 0 auto;
-}
-
-.sign-up h2 {
-  color: #ffffff;
-  font-weight: 500;
-  margin-bottom: 30px;
-}
-
-.sign-up button {
-  background: #ffffff none repeat scroll 0 0;
-  border: medium none;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
-  color: #4ac4f3;
-  display: inline-block;
-  font-family: "Montserrat",sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  line-height: 25px;
-  margin-top: 15px;
-  overflow: hidden;
-  padding: 8px 35px;
-  text-transform: uppercase;
-  transition: all 0.35s ease-in-out;
-  -webkit-transition: all 0.35s ease-in-out;
-  -moz-transition: all 0.35s ease-in-out;
-  -ms-transition: all 0.35s ease-in-out;
-  -o-transition: all 0.35s ease-in-out;
-}
 
 /* ==============================================================
      # Contact

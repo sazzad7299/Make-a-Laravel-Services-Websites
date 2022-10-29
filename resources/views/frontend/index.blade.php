@@ -1,59 +1,54 @@
 @extends('frontend.layouts.main')
 @section('frontcss')
 <style>
-    .no-background .nav  li a{
+    /* .no-background .nav  li a{
             color:white!important;
         }
         .no-background .nav .dropdown-menu li a{
             color: #333333!important;
-        }
+        } */
 </style>
 @stop
 @section('main-content')
         <!-- Start Banner
     ============================================= -->
-    <div class="banner-area shape-index transparent-nav content-double text-medium text-center">
+    <div class="banner-area shape-index transparent-nav content-double text-medium">
         <div class="box-table">
             <div class="box-cell">
                 <div class="container">
                     <div class="double-items thumb-140">
                         <div class="row align-center">
-                            <div class="col-lg-12 left-info default-padding">
+                            <div class="col-lg-6 left-info simple-video">
                                 <div class="content" data-animation="animated fadeInUpBig">
-                                    <h1>One Stop Solution for Your Business</h1>
-                                </div>
-                                {{-- Search Area --}}
-                                <div class="subscribe-area   text-center">
-                                    <div class="subscribe col-md-8 col-sm-12 col-md-auto">
-                                        <form action="#">
-                                            <div class="input-group stylish-input-group">
-                                                <select class="form-control">
-                                                    <option value="">Digital Marketing</option>
-                                                    <option value="">Digital Marketing</option>
-                                                    <option value="">Digital Marketing</option>
-                                                    <option value="">Digital Marketing</option>
-                                                    <option value="">Digital Marketing</option>
-                                                </select>
-                                                <input type="email" placeholder="Your Services" class="form-control"
-                                                    name="email">
-                                                <span class="input-group-addon">
-                                                    <button type="submit">
-                                                        <i class="fa fa-search"></i>
-                                                    </button>
-                                                </span>
+                                    <h1>One Stop <span>Solutions</span> for you business</h1>
+
+                                        <div class="form-group col-md-12 col-sm-12 col-lg-12">
+                                            <div class="subscribe">
+                                                <form action="#">
+                                                    <div class="input-group stylish-input-group">
+                                                        <input type="text" placeholder="Find your Solution" class="form-control" name="search"id="email">
+                                                        <span class="input-group-addon">
+                                                            <button type="submit">
+                                                                <i class="fa fa-paper-plane"></i>
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                </form>
                                             </div>
-                                        </form>
-                                    </div>
+
+                                        </div>
+
                                 </div>
-                                {{-- Search Area End--}}
+                            </div>
+                            <div class="col-lg-6 right-info">
+                                <img src="assets/img/illustration/3.png" alt="Thumb">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="wavesshape">
-                    <img src="assets/img/4.jpg" alt="Shape">
+                    <img src="assets/img/shape/1.png" alt="Shape">
                 </div>
-
             </div>
         </div>
     </div>

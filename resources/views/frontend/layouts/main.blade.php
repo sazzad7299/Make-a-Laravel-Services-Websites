@@ -9,7 +9,7 @@
     <meta name="description" content="{{$titles->site_title}} - {{$titles->site_des}}">
 
     <!-- ========== Page Title ========== -->
-    <title>{{$titles->site_title}} - {{$titles->site_des}}</title>
+    <title > {{$titles->site_title}} - {{$titles->site_des}}</title>
 
     <!-- ========== Favicon Icon ========== -->
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
