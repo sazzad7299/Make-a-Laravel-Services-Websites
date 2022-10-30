@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use App\Models\Blog;
+use App\Models\Team;
 use App\Models\Project;
 use App\Models\Services;
 use App\Models\Portfolio;
@@ -41,7 +42,8 @@ class frontendController extends Controller
     public function about()
     {
         $about = DB::table('pages')->where(['slug'=>'about'])->first();
-        return view('frontend.about',compact('about'));
+        $teams = Team::latest()->get();
+        return view('frontend.about',compact('about','teams'));
     }
     public function contact()
     {

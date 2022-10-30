@@ -52,21 +52,21 @@
             <a @if(\Request::segment(2)=='blog') class="active" @endif href="javascript:void(0);" data-toggle="collapse" data-target="#pages_dr3"><div class="pull-left"><i class="zmdi zmdi-google-pages mr-20"></i><span class="right-nav-text">Blog</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
             <ul id="pages_dr3" class="collapse collapse-level-1 two-col-list">
                 <li>
-                    <a  href="{{url('admin/blog')}}">List</a>
+                    <a  href="{{route('admin.blog.index')}}">List</a>
                 </li>
                 <li>
-                    <a href="{{url('admin/blog/create')}}">Add</a>
+                    <a href="{{route('admin.blog.create')}}">Add</a>
                 </li>
             </ul>
         </li>
-        <li style="display: none">
+        <li>
             <a @if(\Request::segment(2)=='team') class="active" @endif href="javascript:void(0);" data-toggle="collapse" data-target="#pages_drteam"><div class="pull-left"><i class=" glyphicon glyphicon-user mr-20"></i><span class="right-nav-text">Team</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
             <ul id="pages_drteam" class="collapse collapse-level-1 two-col-list">
                 <li>
-                    <a  href="{{url('admin/blog')}}">List</a>
+                    <a  href="{{route('admin.team.index')}}">List</a>
                 </li>
                 <li>
-                    <a href="{{url('admin/blog/create')}}">Add</a>
+                    <a href="{{route('admin.team.create')}}">Add</a>
                 </li>
             </ul>
         </li>

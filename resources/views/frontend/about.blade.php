@@ -165,87 +165,22 @@
             </div>
             <div class="team-items">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
+                    @forelse ($teams as $team)
+                    <div class="col-lg-3 col-md-3">
                         <div class="item">
                             <div class="thumb">
-                                <img src="assets/img/800x800.png" alt="Thumb">
-                                <div class="social">
-                                    <ul>
-                                        <li class="facebook">
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                        <li class="twitter">
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li class="pinterest">
-                                            <a href="#"><i class="fab fa-pinterest"></i></a>
-                                        </li>
-                                        <li class="instagram">
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <img src="{{asset('uploads/team/'.$team->image)}}" alt="Thumb">
                             </div>
                             <div class="info">
-                                <h4>Ahmed Kamal</h4>
-                                <span>Developer of Softing</span>
+                                <h4>{{$team->name}}</h4>
+                                <span>{{$team->title}}</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/img/800x800.png" alt="Thumb">
-                                <div class="social">
-                                    <ul>
-                                        <li class="facebook">
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                        <li class="twitter">
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li class="pinterest">
-                                            <a href="#"><i class="fab fa-pinterest"></i></a>
-                                        </li>
-                                        <li class="instagram">
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <h4>Drunal Park</h4>
-                                <span>Manager of Softing</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/img/800x800.png" alt="Thumb">
-                                <div class="social">
-                                    <ul>
-                                        <li class="facebook">
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                        <li class="twitter">
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li class="pinterest">
-                                            <a href="#"><i class="fab fa-pinterest"></i></a>
-                                        </li>
-                                        <li class="instagram">
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <h4>Munia Ankor</h4>
-                                <span>Founder of Softing</span>
-                            </div>
-                        </div>
-                    </div>
+
+                    @empty
+                    <p class="text-danger"> No team Available</p>
+                    @endforelse
                 </div>
             </div>
         </div>

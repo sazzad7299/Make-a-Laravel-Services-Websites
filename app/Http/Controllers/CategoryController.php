@@ -111,7 +111,7 @@ class CategoryController extends Controller
     {
         if($category){
             $category->delete();
-            Session::flash('success', 'Delete created successfully');
+            Session::flash('success', 'Delete Category successfully');
             return redirect()->back();
         }
 
@@ -128,5 +128,5 @@ class CategoryController extends Controller
         }
 
     }
-    
+
 }
