@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
-    
+
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Cviebrock\EloquentSluggable\Sluggable as EloquentSluggableSluggable;
 
 class Services extends Model
 {
-    use HasFactory;
-    use Sluggable;
+    use HasFactory,Sluggable,Searchable;
     public function children()
     {
       return $this->hasMany(Services::class, 'parent_id');
@@ -22,6 +21,13 @@ class Services extends Model
             'slug' => [
                 'source' => 'title'
             ]
+        ];
+    }
+    public function toSearchableArray()
+    {
+        return [
+            'title' => $this->title,
+            'heading' => $this->heading,
         ];
     }
 }

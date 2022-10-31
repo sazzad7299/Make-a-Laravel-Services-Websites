@@ -1324,7 +1324,8 @@ body,
    }
    .banner-area .subscribe .stylish-input-group span.input-group-addon button{
     font-size: 22px;
-    color: #4ac4f3;
+    background-color: #4ac4f3;
+    color: #232323;
     width: 40px;
     height: 50px;
     border-radius: 2px;

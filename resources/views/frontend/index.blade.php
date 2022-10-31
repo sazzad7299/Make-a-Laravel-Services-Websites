@@ -24,7 +24,8 @@
 
                                         <div class="form-group col-md-12 col-sm-12 col-lg-12">
                                             <div class="subscribe">
-                                                <form action="#">
+                                                <form action="{{route('service.search')}}" method="POST">
+                                                    @csrf
                                                     <div class="input-group stylish-input-group">
                                                         <input type="text" placeholder="Find your Solution" class="form-control" name="search"id="email">
                                                         <span class="input-group-addon">

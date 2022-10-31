@@ -301,4 +301,15 @@ class ServicesController extends Controller
         }
 
     }
+    public function serviceSearch(Request $request)
+    {
+        $search = $request->search;
+        // dd($request->all());
+        $services = Services::query()
+        ->when(request('search'), function($query){
+            $query->where('title','LIKE','%'. request('search') . '%')
+            ->orwhere('heading','LIKE','%'. request('search') . '%');
+        })->get();
+        return view('frontend._searchresult',compact('search','services'));
+    }
 }

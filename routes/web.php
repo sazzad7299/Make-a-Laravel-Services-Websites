@@ -38,6 +38,7 @@ Route::get('/service/{slug}',[ServicesController::class,'singleService'])->name(
 Route::get('/submain/{id}',[ServicesController::class,'subMain']);
 
 Route::get('/popup',[frontendController::class,'popup'])->name('quote2');
+Route::match(['get','post'],'/search',[ServicesController::class,'serviceSearch'])->name('service.search');
 
 
 Route::get('/contact',[frontendController::class,'contact'])->name('contact');
