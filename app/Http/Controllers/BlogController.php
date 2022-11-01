@@ -93,6 +93,11 @@ class BlogController extends Controller
         }else{
             $blog->status=0;
         }
+        if(!empty($data['offer'])){
+            $blog->is_offer=$data['offer'];
+        }else{
+            $blog->is_offer=0;
+        }
         $blog->cat_id=$data['category'];
        $saved = $blog->save();
 

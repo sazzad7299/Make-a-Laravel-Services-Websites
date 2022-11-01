@@ -28,6 +28,7 @@ Route::get('/service',[frontendController::class,'service'])->name('service');
 Route::get('/project',[frontendController::class,'project'])->name('project');
 Route::get('/portfolio',[frontendController::class,'portfolio'])->name('portfolio');
 Route::get('/portfolio/{slug}',[frontendController::class,'singlePortfolio'])->name('singlePortfolio');
+Route::get('/project/{slug}',[frontendController::class,'singleProject'])->name('singleProject');
 Route::get('news/',[frontendController::class,'blog'])->name('blog');
 Route::get('/news/{slug}',[frontendController::class,'singlepost'])->name('singlepost');
 Route::get('/about',[frontendController::class,'about'])->name('about');

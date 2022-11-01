@@ -64,9 +64,31 @@
 
                                     </div>
                                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-                                        <label for="tag">Video(url):</label>
-                                        <input type="tex" name="video" id="video" class="form-control">
 
+                                        <div class="col-md-6">
+                                            <p> Status:</p>
+                                            <section title=".slideThree">
+                                                <!-- .slideThree -->
+                                                <div class="slideThree">
+                                                    <input type="checkbox" value="1" id="slideThree" name="status"
+                                                        checked />
+                                                    <label for="slideThree"></label>
+                                                </div>
+                                                <!-- end .slideThree -->
+                                            </section>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Offer</p>
+                                            <section title=".slideThree">
+                                                <!-- .slideThree -->
+                                                <div class="slideThree">
+                                                    <input type="checkbox" value="1" id="slideThree" name="offer"
+                                                        checked />
+                                                    <label for="slideThree"></label>
+                                                </div>
+                                                <!-- end .slideThree -->
+                                            </section>
+                                        </div>
                                     </div>
                                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
                                         <label for="tag">Tag:</label>
@@ -80,15 +102,7 @@
 
                                     <div class="col-md-6 col-sm-12 col-xs-12 form-group">
 
-                                        <section title=".slideThree">
-                                            <!-- .slideThree -->
-                                            <div class="slideThree">
-                                                <input type="checkbox" value="1" id="slideThree" name="status"
-                                                    checked />
-                                                <label for="slideThree"></label>
-                                            </div>
-                                            <!-- end .slideThree -->
-                                        </section>
+
 
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group">

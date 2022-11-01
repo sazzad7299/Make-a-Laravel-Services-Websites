@@ -16,7 +16,6 @@
                                     <p>
                                         {{$about->desc}}
                                     </p>
-                                    <a class="btn circle btn-theme effect btn-sm popup-youtube" href="{{route('quote2')}}">Get a Free Quote <i class="fas fa-envelope"></i></a>
 
                                 </div>
                             </div>

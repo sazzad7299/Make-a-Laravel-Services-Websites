@@ -16,8 +16,9 @@ class frontendController extends Controller
 {
     public function home()
     {
-        $blogs = Blog::latest()->take(3)->get();
-        return view('frontend.index',compact('blogs'));
+        $blogs = Blog::where('is_offer',0)->where('status',1)->latest()->take(3)->get();
+        $offers = Blog::where('is_offer',1)->where('status',1)->latest()->take(6)->get();
+        return view('frontend.index',compact('blogs','offers'));
     }
     public function service()
     {
@@ -36,7 +37,7 @@ class frontendController extends Controller
     }
     public function blog()
     {
-        $blogs = Blog::with('category')->where('status',1)->latest()->simplePaginate(9);
+        $blogs = Blog::with('category')->where('is_offer',0)->where('status',1)->latest()->simplePaginate(9);
         return view('frontend.blog',compact('blogs'));
     }
     public function about()
@@ -74,6 +75,17 @@ class frontendController extends Controller
             $item = Portfolio::where('slug', $slug)->first();
 
             return view('frontend.singleportfolio',compact('item'));
+        }
+        else abort('404');
+    }
+    public function singleProject($slug)
+    {
+
+        $portfolio = Project::where('slug', $slug)->count();
+        if($portfolio>0){
+            $item = Project::where('slug', $slug)->first();
+
+            return view('frontend.singleproject',compact('item'));
         }
         else abort('404');
     }

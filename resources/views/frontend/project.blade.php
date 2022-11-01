@@ -18,7 +18,7 @@
                                     <p>
                                         {!! Str::limit(strip_tags( $item->desc),500) !!}
                                     </p>
-                                    <a class="btn circle btn-gray effect btn-sm" href="#">View More</a>
+                                    <a class="btn circle btn-gray effect btn-sm" href="{{route('singleProject',[$item->slug])}}">View More</a>
 
                                 </div>
                             </div>

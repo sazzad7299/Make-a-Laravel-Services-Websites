@@ -12,7 +12,7 @@
     <title > {{$titles->site_title}} - {{$titles->site_des}}</title>
 
     <!-- ========== Favicon Icon ========== -->
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}" type="image/x-icon">
 
     <!-- ========== Start Stylesheet ========== -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
@@ -88,11 +88,8 @@
                             $.each(response, function(key, value) {
                                 $('#subservice').append('<option value="' + value.title + '">' + value.title + '</option>');
                             });
-
-
                         },
                         error: function(error) {
-
                         }
                     });
             });

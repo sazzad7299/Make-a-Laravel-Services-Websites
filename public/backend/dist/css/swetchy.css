@@ -5,7 +5,7 @@
     width: 50px;
     height: 10px;
     background: #333;
-    margin: 20px auto;
+    margin: 20px;
     position: relative;
     border-radius: 50px;
     box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
@@ -96,7 +96,7 @@
     width: 80px;
     height: 26px;
     background: #333;
-    margin: 20px auto;
+    margin: 20px;
     position: relative;
     border-radius: 50px;
     box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
