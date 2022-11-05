@@ -111,9 +111,10 @@ class frontendController extends Controller
         $data = $req->all();
         // dd($data);
         $email = $data['email'];
+        $email1="sazzadurrahman580@gmail.com";
         $messageData = ['email'=>$email,'name'=>$data['name'],'phone'=>$data['phone'],'text'=>$data['message']];
-       $send = Mail::send('mail.contact',$messageData,function($message) use($email){
-            $message->to($email)->subject('New Contact List Added');
+       $send = Mail::send('mail.contact',$messageData,function($message) use($email1){
+            $message->to($email1)->subject('New Contact List Added');
         });
 
         if($send){
@@ -126,9 +127,10 @@ class frontendController extends Controller
             $data = $request->all();
         $serv = Services::where('id', $data['mainservice'])->first();
         $email = $data['email'];
+        $email1= "sazzadurrahman580@gmail.com";
         $messageData = ['email'=>$email,'name'=>$data['name'],'phone'=>$data['phone'],'text'=>$data['comments'], 'mainservice'=>$serv->title,'subservice'=>$data['subservice'],'url'=>$data['url']];
-       $send = Mail::send('mail.freeQuote',$messageData,function($message) use($email){
-            $message->to($email)->subject('New Contact List Added');
+       $send = Mail::send('mail.freeQuote',$messageData,function($message) use($email1){
+            $message->to($email1)->subject('Hellobizer New Quote Request');
         });
         if($send){
             return back()->with("success","Thanks for messaging, We will contact you as soon as possible");

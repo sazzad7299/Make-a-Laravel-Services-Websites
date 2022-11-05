@@ -31,8 +31,6 @@ class AppServiceProvider extends ServiceProvider
 
     {
         Schema::defaultStringLength(191);
-        // $find = request()->getSchemeAndHttpHost();
-        // dd($find);
         $frontServices = Services::where('status',1)->get();
         $recentBlogs = Blog::where('status',1)->latest()->take(5)->get();
         $categories = Category::latest()->take(5)->get();

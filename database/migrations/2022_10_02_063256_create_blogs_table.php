@@ -24,6 +24,7 @@ return new class extends Migration
             $table->mediumText('description')->nullable();
             $table->string('tag');
             $table->integer('cat_id');
+            $table->integer('is_offer')->default(0);
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

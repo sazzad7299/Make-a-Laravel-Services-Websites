@@ -2,15 +2,17 @@
 use App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagController;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\frontendController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PortfolioController;
-use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServicesController;
-use App\Http\Controllers\TagController;
-use App\Http\Controllers\TeamController;
+use App\Http\Controllers\PortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +57,8 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::match(['get','post'],'/settings',[ServicesController::class,'settings'])->name('settings');
     Route::match(['get','post'],'/pages/{about}',[ServicesController::class,'pages'])->name('pages');
     Route::view('service', 'admin.services.list');
+    Route::match(['get', 'post'], '/profile', [AdminController::class,'profile'])->name('profile');
+    Route::post('/update-password',[AdminController::class,'updatepassword'])->name('updatepassword');
     Route::resources([
         'blog'=>BlogController::class,
         'tag'=>TagController::class,
@@ -66,6 +70,9 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
 
     ]);
 });
-
+Route::get('/migrate', function(){
+    Artisan::call('migrate:fresh', ['--force' => true]);
+    dd('migrated!');
+});
 
 

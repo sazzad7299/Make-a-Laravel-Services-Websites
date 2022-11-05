@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>My Name is: <strong>{{ $name }}</strong></h1>
-    <p>My Email:{{$email}}</p>
+    <p>My Email: {{$email}}</p>
     <p>My Phone:{{$phone}}</p>
     <p><Strong>Main Servie:{{$mainservice}}</Strong></p>
     <p><Strong>Child Servie:{{$subservice}}</Strong></p>

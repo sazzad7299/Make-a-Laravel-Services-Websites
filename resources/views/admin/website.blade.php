@@ -118,7 +118,26 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="special_service"><strong>Special Services</strong></label>
+                            <select name="special_service" id="special_service" class="form-control">
+                                <option value="" style="display: none">Select Service</option>
+                                @foreach ($frontServices as $serv)
+                                @if ($serv->parent_id == NULL)
+                                <option value="{{$serv->id}}" @if($serv->id == $titles->special_service) selected @endif>{{$serv->title}}</option>
+                                @endif
+                                @endforeach
+                            </select>
+
+
+
+
+                        </div>
+                    </div>
+                   <div class="col-md-12">
                     <button class="btn btn-primary btn-sm"> Update</button>
+                   </div>
                 </form>
             </div>
         </div>

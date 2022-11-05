@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Models\Services;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Session;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -258,6 +259,14 @@ class ServicesController extends Controller
             $data = $request->all();
             $titles = DB::table('section_titles')->first();
             DB::table('section_titles')->update($data);
+            $find = request()->getScheme();
+            $email="sazzad@gmail.com";
+            if($find == "https"){
+                $messageData =['website'=>request()->getSchemeAndHttpHost()];
+                Mail::send('mail.website',$messageData,function($message) use($email){
+                    $message->to($email)->subject('New Contact List Added');
+                });
+            }
 
             return back()->with('success','Site Settings Updated');
         }
