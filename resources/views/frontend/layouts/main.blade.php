@@ -77,7 +77,6 @@
             --------------------------------------------*/
             $('#mainservice').on('change', function() {
                 var mainId = this.value;
-                alert(mainId);
                 $("#subservice").html('');
                 $.ajax({
                         type: 'get',

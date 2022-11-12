@@ -35,20 +35,20 @@
 
                             <div class="row">
                                 <div class="col-md-6 col-lg-4">
-                                    <input type="text" class="form-control" placeholder="Your Name"name="name">
+                                    <input type="text" class="form-control" placeholder="Your Name"name="name" required>
                                 </div>
                                 <div class="col-md-6 col-lg-4">
-                                    <input type="text" class="form-control" placeholder="Phone Number" name="phone">
+                                    <input type="text" class="form-control" placeholder="Phone Number" name="phone" required>
                                 </div>
                                 <div class="col-md-6 col-lg-4">
-                                    <input type="email" class="form-control" placeholder="Email Address" name="email">
+                                    <input type="email" class="form-control" placeholder="Email Address" name="email" required>
                                 </div>
                                 <div class="col-md-6 col-lg-4">
                                     <input type="text" class="form-control" placeholder="Facebook Page/Website Url"
-                                        name="url">
+                                        name="url" required>
                                 </div>
                                 <div class="col-md-6 col-lg-4">
-                                    <select name="mainservice" id="mainservice" class="form-control" rel="2">
+                                    <select name="mainservice" id="mainservice" class="form-control" rel="2" required>
                                         <option value="" style="display: none" selected>Select Services</option>
                                         @foreach ($frontServices as $service)
                                             @if ($service->parent_id == null)
