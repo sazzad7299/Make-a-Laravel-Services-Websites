@@ -106,6 +106,7 @@ class frontendController extends Controller
     {
         return view('frontend.popup');
     }
+    
     public function sendmessage(Request $req)
     {
         $data = $req->all();
